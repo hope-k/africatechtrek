@@ -149,7 +149,7 @@ const SideBar = () => {
           ease: "circInOut",
           opacity: { duration: 0.7 },
         }}
-        exit={{ x: "-100%", transition: { duration: 1.2 } }}
+        exit={{ x: "-100%", transition: { duration: .2 } }}
         className={
           " bg-white block w-full h-[100vh] top-[0rem] right-0 sm:hidden absolute left-0 z-[40]"
         }
