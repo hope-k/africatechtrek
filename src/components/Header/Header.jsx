@@ -23,10 +23,10 @@ const Header = () => {
           <Link href="/" className="hover:text-gray-800">
             home
           </Link>
-          <a href="/services" className="hover:text-gray-800">
+          <a href="/events" className="hover:text-gray-800">
             events
           </a>
-          <a href="/contact" className="hover:text-gray-800">
+          <a href="/rsvp" className="hover:text-gray-800">
             rsvp
           </a>
         </div>

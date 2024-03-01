@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import localFont from "next/font/local";
+import Link from "next/link";
 import { Lato, Raleway } from "next/font/google";
 const clashDisplay = localFont({
   src: "../../fonts/OTF/ClashDisplay-Variable.ttf",
@@ -76,7 +77,7 @@ const Hero = () => {
           <motion.h1
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: .8, ease: "circOut" }}
+            transition={{ duration: 0.8, ease: "circOut" }}
             className={`${clashDisplay.className} `}
           >
             Africa <br />
@@ -92,7 +93,7 @@ const Hero = () => {
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: .8, ease: "circOut" }}
+            transition={{ duration: 0.8, ease: "circOut" }}
             className={` flex flex-col md:flex-row  mt-1 md:mt-0  ${clashDisplay.className}`}
           >
             <span className="text-[clamp(2rem,3.625vw,3.625rem)] text-[#5092A7] font-[600]">
@@ -109,10 +110,13 @@ const Hero = () => {
             </h1>
           </motion.div>
         </div>
-        <button className="bg-[#128255] p-2 px-10 uppercase rounded-lg font-[400]">
+        <Link
+          href="/rsvp"
+          className="bg-[#128255] p-2 px-10 uppercase rounded-lg font-[400]"
+        >
           {" "}
           register now
-        </button>
+        </Link>
       </div>
     </div>
   );

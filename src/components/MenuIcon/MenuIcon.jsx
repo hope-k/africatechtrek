@@ -18,13 +18,13 @@ const MenuIcon = () => {
         <div
           className={
             (sidebarOpen ? " rotate-45 top-2 " : " rotate-0 top-0 ") +
-            " w-full h-[1px] bg-white  relative  transition-all duration-500 ease-out"
+            " w-full h-[1px] bg-[#ccc]  relative  transition-all duration-500 ease-out"
           }
         ></div>
         <div
           className={
             (sidebarOpen ? " -rotate-45 bottom-1  " : " rotate-0 bottom-0 ") +
-            " w-full h-[1px] bg-white relative  transition-all duration-500 ease-out"
+            " w-full h-[1px] bg-[#ccc] relative  transition-all duration-500 ease-out"
           }
         ></div>
       </div>
