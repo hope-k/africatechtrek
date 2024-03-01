@@ -48,9 +48,31 @@ const RwandaEvent = () => {
     const link = document.createElement("a");
     link.href = "/assets/AFRICA-TECH-TREK.pdf";
     link.download = "AFRICA-TECH-TREK.pdf";
+    link.setAttribute("target", "_blank")
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+  const containerVariants = {
+    show: {
+      transition: {
+        staggerChildren: 0.18, // Adjust the stagger timing as needed
+      },
+    },
+  };
+
+  // Define the child variants for opacity
+  const childVariants = {
+    hidden: { opacity: 0, scale: 0.04 },
+    show: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        ease: "circOut",
+
+        duration: 0.8,
+      },
+    },
   };
 
   return (
@@ -279,6 +301,7 @@ const RwandaEvent = () => {
           whileInView={{ scale: 1 }}
           transition={{ duration: 1, ease: "circInOut" }}
           className="relative h-[400px] mx-1 "
+          viewport={{once: true}}
         >
           <Image
             alt="Rwanda Event"
@@ -364,10 +387,21 @@ const RwandaEvent = () => {
             impact.
           </p>
         </div>
-        <div className="col-span-3 w-full h-full">
-          <div className="grid w-full h-full grid-cols-2 grid-rows-2 gap-[2px] sm:gap-2 justify-items-center items-start">
-            <div className="px-2 flex flex-col items-center ">
-              <div className="relative w-12 h-14 bg-slate-200 rounded-xl  ">
+        <div className="col-span-3 w-full h-full ">
+          {/* whats included container */}
+
+          <motion.div
+            className="grid mx-2 sm:mx-0 h-full grid-cols-2 grid-rows-2 gap-[2px] justify-items-center items-start"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+          >
+            {/* whats included item */}
+            <motion.div
+              className="px-2 flex flex-col items-center  py-4 text-center bg-[#f2f2f2ad] rounded-xl"
+              variants={childVariants}
+            >
+              <div className="relative w-12 h-14  rounded-xl  ">
                 <Image
                   alt="Rwanda Event"
                   className=" w-full stroke-red-500 h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
@@ -378,13 +412,17 @@ const RwandaEvent = () => {
               <h1 className={`${raleway.className} font-semibold mb-1`}>
                 Housing accomodation
               </h1>
-              <p className={`${lato.className}`}>
+              <p className={`${lato.className} max-w-[23ch]`}>
                 Enjoy the perfect blend of modern comfort and captivating views
                 at Rwanda&apos;s leading hotels
               </p>
-            </div>
-            <div className="px-2 flex flex-col items-center ">
-              <div className="relative w-12 h-12 bg-slate-200 rounded-xl  ">
+            </motion.div>
+
+            <motion.div
+              variants={childVariants}
+              className="px-2 flex flex-col items-center  py-4 text-center bg-[#f2f2f2ad] rounded-xl"
+            >
+              <div className="relative w-12 h-12  rounded-xl  ">
                 <Image
                   alt="Rwanda Event"
                   className=" w-full h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
@@ -392,14 +430,19 @@ const RwandaEvent = () => {
                   layout="fill"
                 />
               </div>
-              <h1 className={`${raleway.className} font-semibold mb-1`}>Transportation & Logistics</h1>
-              <p>
+              <h1 className={`${raleway.className} font-semibold mb-1`}>
+                Transportation & Logistics
+              </h1>
+              <p className={`${lato.className} max-w-[23ch]`}>
                 Professional drivers and vehicles with be provided for the full
                 duration of the trip, to ensure a seamless experience.
               </p>
-            </div>
-            <div className="px-2 flex flex-col items-center ">
-              <div className="relative w-12 h-12 bg-slate-200 rounded-xl  ">
+            </motion.div>
+            <motion.div
+              className="px-2 flex flex-col items-center  py-4 text-center bg-[#f2f2f2ad] rounded-xl"
+              variants={childVariants}
+            >
+              <div className="relative w-12 h-12  rounded-xl  ">
                 <Image
                   alt="Rwanda Event"
                   className=" w-full h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
@@ -407,15 +450,20 @@ const RwandaEvent = () => {
                   layout="fill"
                 />
               </div>
-              <h1 className={`${raleway.className} font-semibold mb-1`}>Professional Guides</h1>
-              <p>
+              <h1 className={`${raleway.className} font-semibold mb-1`}>
+                Professional Guides
+              </h1>
+              <p className={`${lato.className} max-w-[23ch]`}>
                 With well trained and proffesional local guides, you will be
                 treated with the best services you can get in Rwanda. Making
                 your stay an unforgettable experience{" "}
               </p>
-            </div>
-            <div className="px-2 flex flex-col items-center ">
-              <div className="relative w-12 h-12 bg-slate-200 rounded-xl  ">
+            </motion.div>
+            <motion.div
+              className="px-2 flex flex-col items-center  py-4 text-center bg-[#f2f2f2ad] rounded-xl"
+              variants={childVariants}
+            >
+              <div className="relative w-12 h-12 rounded-xl  ">
                 <Image
                   alt="Rwanda Event"
                   className=" w-full h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
@@ -423,14 +471,16 @@ const RwandaEvent = () => {
                   layout="fill"
                 />
               </div>
-              <h1 className={`${raleway.className} font-semibold mb-1`}>Safety Assurance</h1>
-              <p>
+              <h1 className={`${raleway.className} font-semibold mb-1`}>
+                Safety Assurance
+              </h1>
+              <p className={`${lato.className} max-w-[23ch]`}>
                 Your well-being is our utmost priority. We meticulously ensure
                 all necessary safety measures are in place. Explore with
                 confidence and peace of mind{" "}
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
