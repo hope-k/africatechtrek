@@ -48,7 +48,7 @@ const RwandaEvent = () => {
     const link = document.createElement("a");
     link.href = "/assets/AFRICA-TECH-TREK.pdf";
     link.download = "AFRICA-TECH-TREK.pdf";
-    link.setAttribute("target", "_blank")
+    link.setAttribute("target", "_blank");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -169,7 +169,7 @@ const RwandaEvent = () => {
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   whileInView={{ height: "200px", opacity: 1 }}
-                  transition={{ duration: 0.85, ease: "circInOut" }}
+                  transition={{ duration: 0.75, ease: "circInOut" }}
                   className="bg-[#f2f2f2ad] p-[clamp(0rem,2vw,2rem)] rounded-b-xl max-h-[200px]"
                 >
                   <p
@@ -296,20 +296,14 @@ const RwandaEvent = () => {
             African gem.
           </p>
         </div>
-        <motion.div
-          initial={{ scale: 0.95 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 1, ease: "circInOut" }}
-          className="relative h-[400px] mx-1 "
-          viewport={{once: true}}
-        >
+        <div>
           <Image
             alt="Rwanda Event"
             className=" w-full h-full rounded-xl sm:rounded-none aspect-auto brightness-[80%] object-cover md:rounded-l-xl  object-bottom"
             src="/images/accomodation.jpg"
             layout="fill"
           />
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* Speakers */}
