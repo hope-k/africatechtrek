@@ -359,8 +359,8 @@ const RwandaEvent = () => {
           gradient={false}
           speed={40}
         >
-          <div className=" flex items-center w-full justify-between space-x-[clamp(7rem,8vw,8rem)] flex-row">
-            <div className="relative w-[clamp(10rem,15vw,15rem)] h-24">
+          <div className=" flex items-center w-full justify-around space-x-[clamp(7.5rem,8vw,8rem)] flex-row">
+            <div className="relative ml-10 w-[clamp(10rem,15vw,15rem)] h-24">
               <Image
                 src={"/assets/speakers/zipline.svg"}
                 alt="Zipline"
