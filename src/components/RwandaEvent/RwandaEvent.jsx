@@ -365,6 +365,7 @@ const RwandaEvent = () => {
                 src={"/assets/speakers/zipline.svg"}
                 alt="Zipline"
                 layout="fill"
+                priority={true}
               />
             </div>{" "}
             <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
@@ -372,6 +373,7 @@ const RwandaEvent = () => {
                 src={"/assets/speakers/paystack.svg"}
                 alt="Paystack"
                 layout="fill"
+                priority={true}
               />
             </div>{" "}
             <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
@@ -379,6 +381,8 @@ const RwandaEvent = () => {
                 src={"/assets/speakers/irembo.svg"}
                 alt="Irembo"
                 layout="fill"
+                priority={true}
+                
               />
             </div>{" "}
             <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
@@ -386,6 +390,7 @@ const RwandaEvent = () => {
                 src={"/assets/speakers/kasha.png"}
                 alt="Kasha"
                 layout="fill"
+                priority={true}
               />
             </div>{" "}
             <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
@@ -393,6 +398,7 @@ const RwandaEvent = () => {
                 src={"/assets/speakers/spenn.png"}
                 alt="Spenn"
                 layout="fill"
+                priority={true}
               />
             </div>{" "}
           </div>
