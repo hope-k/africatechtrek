@@ -6,11 +6,12 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import { Lato, Raleway } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700", "900"] });
-const raleway = Raleway({ subsets: ["latin"], weight: ["400", "700", "800"] });
+const raleway = Raleway({ subsets: ["latin"], weight: ["400", "700", "800", "900"] });
 import Marquee from "react-fast-marquee";
 import PaystackSvg from "../../../public/assets/speakers/paystack.svg";
 import IremboSvg from "../../../public/assets/speakers/irembo.svg";
 import ZiplineSvg from "../../../public/assets/speakers/zipline.svg";
+import CountDown from "react-countdown";
 
 const clashDisplay = localFont({
   src: "../../fonts/OTF/ClashDisplay-Variable.ttf",
@@ -48,7 +49,7 @@ const RwandaEvent = () => {
     const link = document.createElement("a");
     link.href = "/assets/AFRICA-TECH-TREK.pdf";
     link.download = "AFRICA-TECH-TREK.pdf";
-    link.setAttribute("target", "_blank")
+    link.setAttribute("target", "_blank");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -75,8 +76,31 @@ const RwandaEvent = () => {
     },
   };
 
+  const speakers = [
+      {
+        name: "Zipline",
+        url: '/assets/speakers/zipline.svg'
+      } ,
+      {
+        name: "Paystack",
+        url: '/assets/speakers/paystack.svg'
+      },
+      {
+        name: "Irembo",
+        url: '/assets/speakers/irembo.svg'
+      },
+      {
+        name: "Kasha",
+        url: '/assets/speakers/kasha.png'
+      },
+      {
+        name: "Spenn",
+        url: '/assets/speakers/spenn.png'
+      },
+  ]
+
   return (
-    <section className="pb-[20rem] w-full">
+    <section className="pb-[10rem] w-full space-y-[8rem] sm:space-y-[12rem]">
       <div className="w-full h-[67vh] sm:h-[80vh] relative ">
         <div className="w-full h-full ">
           <Image
@@ -110,11 +134,13 @@ const RwandaEvent = () => {
         </div>
       </div>
       {/* itenery */}
-      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem] ">
+      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center my-[5rem] w-full sm:w-[90%] mx-auto gap-[5rem] ">
         {/* first column */}
-        <div className="  col-span-3">
-          <div className=" leading-7 space-y-5 mx-[1rem] md:mx-0">
-            <h1 className={`${lato.className}   uppercase font-semibold `}>
+        <div className="  col-span-3 ">
+          <div className=" leading-7  mx-[1rem] md:mx-0">
+            <h1
+              className={`${lato.className}   uppercase font-semibold mb-[4rem]`}
+            >
               <span className="text-[1.625rem] ">This</span> <br />{" "}
               <span className="text-[3rem] ] ">
                 july <br />{" "}
@@ -127,14 +153,14 @@ const RwandaEvent = () => {
               initial={{ x: -20, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "circInOut" }}
-              className="space-y-3"
+              className="space-y-5"
             >
               <h1
                 className={`${raleway.className} font-[700] relative  text-xl`}
               >
                 Network with Founders and CEOs of Africa&apos;s Leading
                 Technology Companies
-                <span className="bg-green-600 h-1 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
+                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
               </h1>
               <p className={`${lato.className} font-[400]`}>
                 Participants will be provided with a comprehensive view of
@@ -183,9 +209,26 @@ const RwandaEvent = () => {
           </div>
         </div>
       </div>
-
+      {/* COUNTDOWN */}
+      <CountDown
+        renderer={({ days, hours, minutes, seconds, completed }) => (
+          <div className="flex flex-col md:flex-row py-[3rem] bg-gradient-to-r from-[#699649] to-[#079643] items-center justify-between px-[clamp(1rem,8vw,8rem)] space-y-2 my-10">
+            <h1
+              className={`${raleway.className} text-white font-[800] capitalize text-[clamp(1.5rem,1.875vw,1.875rem)] mb-5 md:mb-0`}
+            >
+              count <span className='text-black'>every <br /> second</span> until <br />the event
+            </h1>
+            <h1
+              className={`${raleway.className} font-[700] text-[clamp(2rem,6vw,6rem)] text-white`}
+            >
+              {days} D: {hours} H: {minutes} M: {seconds} S
+            </h1>
+          </div>
+        )}
+        date={Date.now() + 81 * 24 * 60 * 60 * 1000}
+      />
       {/* who should attend */}
-      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center mb-[5rem]  md:ml-[clamp(1rem,5vw,5rem)]  gap-[5rem] overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center mb-[5rem]  md:ml-[clamp(1rem,6vw,6rem)]  gap-[5rem] overflow-hidden">
         {/* first column */}
         <div className="   col-span-3">
           <div className=" leading-7 space-y-5 mx-[1rem]">
@@ -194,13 +237,13 @@ const RwandaEvent = () => {
               initial={{ x: -20, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "circInOut" }}
-              className="space-y-3"
+              className="space-y-10"
             >
               <h1
-                className={`${raleway.className} font-[700] relative mb-2  text-xl capitalize`}
+                className={`${raleway.className} font-[700] md:max-w-[20ch]   relative mb-2  text-[clamp(2rem,2vw,2.25rem)] capitalize`}
               >
                 who should attend africa tech trek
-                <span className="bg-green-600 h-1 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
+                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
               </h1>
               <p className={`${lato.className} font-[400]`}>
                 Africa Tech Trek is tailored for entrepreneurs seeking market
@@ -262,19 +305,15 @@ const RwandaEvent = () => {
           </div>
         </div>
       </div>
-
       {/* accommodation */}
-      <div
- 
-        className="grid grid-cols-1 md:grid-cols-2 md:ml-[clamp(1rem,5vw,5rem)] gap-[4rem]  "
-      >
-        <div className="space-y-3  mx-[1rem] ">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:ml-[clamp(1rem,5vw,5rem)] gap-[4rem]  ">
+        <div className="space-y-5  mx-[1rem] ">
           <div
             className={`${raleway.className} font-[700]  capitalize space-y-3`}
           >
-            <h1 className="relative text-xl">
+            <h1 className="relative text-[clamp(2rem,2vw,2.25rem)]">
               your accommodation
-              <span className="bg-green-600 h-1 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
+              <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
             </h1>
             <h2 className="font-[800]">
               Radission Blu Hotel & Convention Centre, Kigali
@@ -298,7 +337,7 @@ const RwandaEvent = () => {
           whileInView={{ scale: 1 }}
           transition={{ duration: 1, ease: "circInOut" }}
           className="relative h-[400px] mx-1 "
-          viewport={{once: true}}
+          viewport={{ once: true }}
         >
           <Image
             alt="Rwanda Event"
@@ -308,19 +347,19 @@ const RwandaEvent = () => {
           />
         </motion.div>
       </div>
-
       {/* Speakers */}
-
       <div className="bg-gray-800 w-full pt-10 pb-20 flex flex-col items-center my-3">
         <h1
-          className={`mb-10 text-white uppercase ${clashDisplay.className} font-[500] relative`}
+          className={`mb-10 text-white uppercase text-[clamp(1.2rem,1.7vw,1.725rem)] ${clashDisplay.className} font-[500] relative`}
         >
           Speakers
-          <span className="bg-green-600 h-[2px] absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
         </h1>
 
-        <Marquee>
-          <div className=" flex items-center w-full justify-around space-x-[clamp(4rem,5vw,5rem)] flex-row">
+        <Marquee
+          gradient={false}
+          speed={40}
+        >
+          <div className=" flex items-center w-full justify-between space-x-[clamp(7rem,8vw,8rem)] flex-row">
             <div className="relative w-[clamp(10rem,15vw,15rem)] h-24">
               <Image
                 src={"/assets/speakers/zipline.svg"}
@@ -328,28 +367,28 @@ const RwandaEvent = () => {
                 layout="fill"
               />
             </div>{" "}
-            <div className="relative w-[clamp(10rem,15vw,15rem)] h-24">
+            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
               <Image
                 src={"/assets/speakers/paystack.svg"}
                 alt="Paystack"
                 layout="fill"
               />
             </div>{" "}
-            <div className="relative w-[clamp(10rem,15vw,15rem)] h-24">
+            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
               <Image
                 src={"/assets/speakers/irembo.svg"}
                 alt="Irembo"
                 layout="fill"
               />
             </div>{" "}
-            <div className="relative w-[clamp(10rem,15vw,15rem)] h-24">
+            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
               <Image
                 src={"/assets/speakers/kasha.png"}
                 alt="Kasha"
                 layout="fill"
               />
             </div>{" "}
-            <div className="relative w-[clamp(10rem,15vw,15rem)] h-24">
+            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
               <Image
                 src={"/assets/speakers/spenn.png"}
                 alt="Spenn"
@@ -359,29 +398,28 @@ const RwandaEvent = () => {
           </div>
         </Marquee>
       </div>
-
       {/* WHATS INCLUDDED */}
       <div className=" grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem]">
-        <div className="space-y-3 col-span-3 mx-[1rem] ">
+        <div className="space-y-10 col-span-3 mx-[1rem] ">
           <div
-            className={`${raleway.className} font-[700]  capitalize space-y-3`}
+            className={`${raleway.className} font-[700]  capitalize`}
           >
-            <h1 className="relative text-xl text-green-600 capitalize">
-              what is included?
-              <span className="bg-green-600 h-1 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
+            <h1 className="relative text-[clamp(2rem,2.5vw,2.5rem)] leading-10 text-black capitalize">
+              Join Us For An <span className='font-[800]'>Unforgettable Adventure</span> In The{" "}
+              <span className='font-[800]'>Land Of A Thousand Hills </span>{" "}
+              <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
             </h1>
           </div>
           <p className={`${lato.className} font-[400]`}>
-            Then don&apos;t miss this opportunity to join Africa Tech Trek -
-            Rwanda Edition, a 4-day tour that will take you to the most
-            innovative and inspiring places in the country. You will meet the
-            entrepreneurs, investors and leaders who are shaping the future of
-            Africa, learn about the latest technologies and solutions that are
-            solving real-world problems, and experience the beauty and diversity
-            of Rwanda&apo;s wildlife and landscapes. This is a
-            once-in-a-lifetime chance to connect, learn and have fun with
-            like-minded people who share your passion for technology and social
-            impact.
+            Don&apos;t miss this opportunity to join Africa Tech Trek - Rwanda
+            Edition, a 4-day tour that will take you to the most innovative and
+            inspiring places in the country. You will meet the entrepreneurs,
+            investors and leaders who are shaping the future of Africa, learn
+            about the latest technologies and solutions that are solving
+            real-world problems, and experience the beauty and diversity of
+            Rwanda&apos;s wildlife and landscapes. This is a once-in-a-lifetime
+            chance to connect, learn and have fun with like-minded people who
+            share your passion for technology and social impact.
           </p>
         </div>
         <div className="col-span-3 w-full h-full ">
@@ -401,7 +439,7 @@ const RwandaEvent = () => {
               <div className="relative w-12 h-14  rounded-xl  ">
                 <Image
                   alt="Rwanda Event"
-                  className=" w-full stroke-red-500 h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
+                  className=" w-full  h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
                   src="/assets/icons/house.svg"
                   layout="fill"
                 />

@@ -115,10 +115,10 @@ const HomePage = () => {
         </div>
         <div className="flex flex-col mx-[1rem] sm:w-[clamp(5rem,40vw,40vw)]">
           <h1
-            className={`${raleway.className} mb-6 text-[clamp(2.125rem,4vw,2.625rem)] relative font-[500] text-black capitalize leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)]`}
+            className={`${raleway.className} mb-6 text-[clamp(2.125rem,4vw,2.688rem)] relative font-[700] text-black capitalize leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)]`}
           >
             what is <br /> africa tech trek
-            <span className="bg-green-600 h-1 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
+            <span className="bg-green-600 h-2 absolute bottom-[-6px] left-0 w-[5rem] rounded-full"></span>
           </h1>
           <div
             className={`${lato.className} text-[clamp(0rem,4vw,1.125rem)]  `}
@@ -136,12 +136,11 @@ const HomePage = () => {
       <section className="flex flex-col sm:flex-row sm:my-[8rem] my-[3rem]   m-2 sm:mx-[clamp(0rem,4vw+3rem,8rem)] gap-[3rem] sm:gap-[5rem]">
         <div className="flex flex-col px-4 w-full sm:w-[clamp(0rem,40vw,40vw)]">
           <h1
-            className={`${raleway.className} relative  w-fit mb-6 text-[clamp(2.125rem,4vw,2.425rem)] font-[500] text-black capitalize leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)]`}
+            className={`${raleway.className} relative  w-fit mb-6 text-[clamp(2.125rem,4vw,2.425rem)] font-[700] text-black capitalize leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)]`}
           >
             upcoming <br />
             events
-            <span className="bg-green-600 h-1 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
-
+            <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
           </h1>
           <div
             className={`${lato.className}  text-[clamp(0rem,4vw,1.125rem)]  `}
@@ -152,7 +151,7 @@ const HomePage = () => {
 
         {/* card */}
 
-        <div className="  flex justify-start  flex-col h-full   lg:flex-row gap-2 w-full sm:w-[clamp(0rem,60vw,60vw)] pb-[4rem] md:pb-[10rem] ">
+        <div className="  flex justify-start  flex-col h-full   lg:flex-row gap-2 w-full sm:w-[clamp(0rem,60vw,60vw)] pb-[3rem]  ">
           {events.map((event, idx) => (
             <Link
               href={event.link}
@@ -259,7 +258,7 @@ const HomePage = () => {
         <div className="flex flex-col items-center">
           <div className=" w-[97%] mx-auto sm:max-w-[40%] text-center">
             <h1
-              className={`${raleway.className} capitalize font-[700] text-[clamp(1.1rem,2vw+2rem,2rem)] mb-2`}
+              className={`${raleway.className} capitalize font-[700] text-[clamp(1.1rem,2vw+2rem,2rem)] mb-10`}
             >
               testimonials
             </h1>
@@ -303,20 +302,34 @@ const HomePage = () => {
           {
             // faqs
             faqs.map((faq, idx) => (
-              <div key={idx} className="flex flex-col ">
+              <div key={idx} className="flex flex-col w-full">
                 <button
                   onClick={() => setActive(idx)}
-                  className="text-start bg-[#F0F0F0] p-4 m-1 rounded font-semibold"
+                  className="text-start bg-[#F0F0F0] flex justify-between p-4 mb-1 rounded font-semibold"
                 >
                   {faq.question}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className={`w-6 h-6`}
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
                 </button>
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: active === idx ? "auto" : 0 }}
                   transition={{ duration: 0.5 }}
-                  className={`overflow-hidden bg-[#e3e3e3] rounded`}
+                  className={`overflow-hidden  bg-[#e3e3e3] rounded pl-4`}
                 >
-                  <div className="p-4">{faq.answer}</div>
+                  <div className="p-4 text-sm">{faq.answer}</div>
                 </motion.div>
               </div>
             ))

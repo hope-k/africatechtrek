@@ -13,7 +13,7 @@ const Rsvp = () => {
   const [loading, setLoading] = useState(false);
   const [form, setFormData] = useState({
     email: "",
-    phoneNumber: "",
+    phone: "",
     name: "",
   });
 

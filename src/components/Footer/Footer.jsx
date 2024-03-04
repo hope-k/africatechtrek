@@ -71,10 +71,10 @@ const Footer = () => {
         {/* links */}
         <div className="flex flex-col sm:flex-row justify-between mt-8 px-4 ">
           <div className="flex flex-col mb-4 uppercase">
-            <Link href="/" className=" text-[16px] font-[400] ">
+            <Link href="/events" className=" text-[16px] font-[400] ">
               Events
             </Link>
-            <Link href="/services" className=" text-[16px] font-[400] ">
+            <Link href="/rsvp" className=" text-[16px] font-[400] ">
               Rsvp
             </Link>
           </div>

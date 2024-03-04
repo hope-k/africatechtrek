@@ -14,62 +14,26 @@ const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 const raleway = Raleway({ subsets: ["latin"], weight: ["400", "700", "800"] });
 
 const Hero = () => {
-  const bgImages = [
-    "/images/bg1.jpg",
-    "/images/bg2.jpg",
-    "/images/bg3.jpg",
-    "/images/bg4.jpg",
-    "/images/bg5.jpeg",
-    "/images/bg6.jpg",
-  ];
-  const getRandomImage = () => {
-    const randomIndex = Math.floor(Math.random() * bgImages.length);
-    return bgImages[randomIndex];
-  };
-  const [currentImage, setCurrentImage] = useState(getRandomImage);
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImage(getRandomImage);
-    }, 6000); // Change the interval time as needed (in milliseconds)
-
-    return () => clearInterval(intervalId);
-  }, []);
   return (
     <div className=" w-full relative overflow-hidden h-[80vh] ">
       {/* new image system */}
-      <AnimatePresence presenceAffectsLayout>
-        <motion.div
-          initial={{ opacity: 0.5, scale: 1 }}
-          animate={{
-            scale: 1.5,
-            opacity: 1,
-          }} // You can adjust the scale value
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-            opacity: { duration: 0.55 },
-            filter: { duration: 5.55 },
-          }}
-          style={{
-            width: "100%",
-            height: "100%",
-            top: 0,
-            overflow: "hidden",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            position: "absolute",
-            filter: "brightness(40%)",
-            backgroundPosition: "center center",
-            backgroundImage: `url(${currentImage})`,
-          }}
-          key={currentImage}
-          exit={{
-            transition: { duration: 1.5, ease: "easeIn" },
-          }}
-        ></motion.div>
-      </AnimatePresence>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          top: 0,
+          overflow: "hidden",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          position: "absolute",
+          filter: "brightness(40%)",
+          backgroundPosition: "center center",
+          backgroundImage: `url(${"/images/hero.png"})`,
+        }}
+        exit={{
+          transition: { duration: 1.5, ease: "easeIn" },
+        }}
+      ></div>
 
       {/* Hero Text */}
       <div className="flex flex-col w-full justify-center items-start h-full pl-[clamp(1rem,8vw,8rem)]  relative text-[#ccc] font-semibold uppercase ">
@@ -112,7 +76,7 @@ const Hero = () => {
         </div>
         <Link
           href="/rsvp"
-          className="bg-[#128255] p-2 px-10 uppercase rounded-lg font-[400]"
+          className="bg-[#128255] text-white p-2 px-10 uppercase rounded-lg font-[400]"
         >
           {" "}
           register now
