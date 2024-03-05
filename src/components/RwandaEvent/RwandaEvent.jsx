@@ -25,11 +25,11 @@ const clashDisplay = localFont({
 function Card({ day, title, content }) {
   return (
     <div className="min-w-fit rounded-md   items-center">
-      <div className="px-8 py-2 3xl:px-12 3xl:py-4 bg-gradient-to-r from-[#80B650] to-green-600 rounded-t-md flex items-center gap-4">
+      <div className="sm:px-8 px-5 py-2 3xl:px-12 3xl:py-4 bg-gradient-to-r from-[#80B650] to-green-600 rounded-t-md flex items-center gap-4">
         <p className="text-white text-xl font-bold">Day {day}</p>
         <p className="text-gray-200 text-xs  3xl:text-lg text-left w-[60px]">{title}</p>
       </div>
-      <div className="px-4 py-2 3xl:px-[3rem] 3xl:py-[3rem]  bg-zinc-100 rounded-b-md">
+      <div className="sm:px-4 px-3 py-2 3xl:px-[3rem] 3xl:py-[3rem]  bg-zinc-100 rounded-b-md">
         <p className="w-36 3xl:w-[15rem] text-xs 3xl:text-lg">{content}</p>
       </div>
     </div>
@@ -199,8 +199,8 @@ const RwandaEvent = () => {
         {/* second column */}
         <div className="col-span-3 ">
           <div className="  flex items-center justify-center ">
-            <div className="flex flex-col items-start justify-center ">
-              <div className="py-4  flex gap-4 items-end">
+            <div className="flex  flex-col items-start justify-center ">
+              <div className="py-4 gap-2 flex sm:gap-4 items-end">
                 <Card
                   day={1}
                   title="CEO Office Hours"
@@ -213,7 +213,7 @@ const RwandaEvent = () => {
                 />
               </div>
 
-              <div className="flex pl-3 sm:pl-8 py-2 gap-4 items-center">
+              <div className="flex gap-2  sm:pl-8 py-2 sm:gap-4 items-center">
                 <Card
                   day={2}
                   title="Zipline Deep-dive"
