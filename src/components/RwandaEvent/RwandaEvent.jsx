@@ -24,13 +24,13 @@ const clashDisplay = localFont({
 
 function Card({ day, title, content }) {
   return (
-    <div className="w-fit rounded-md   items-center">
-      <div className="px-8 py-2 bg-green-600 rounded-t-md flex items-center gap-4">
+    <div className="min-w-fit rounded-md   items-center">
+      <div className="px-8 py-2 3xl:px-12 3xl:py-4 bg-gradient-to-r from-[#80B650] to-green-600 rounded-t-md flex items-center gap-4">
         <p className="text-white text-xl font-bold">Day {day}</p>
-        <p className="text-gray-200 text-xs text-left w-[60px]">{title}</p>
+        <p className="text-gray-200 text-xs  3xl:text-lg text-left w-[60px]">{title}</p>
       </div>
-      <div className="px-4 py-2 bg-zinc-100 rounded-b-md">
-        <p className="w-36 text-xs">{content}</p>
+      <div className="px-4 py-2 3xl:px-[3rem] 3xl:py-[3rem]  bg-zinc-100 rounded-b-md">
+        <p className="w-36 3xl:w-[15rem] text-xs 3xl:text-lg">{content}</p>
       </div>
     </div>
   );
@@ -178,7 +178,7 @@ const RwandaEvent = () => {
               >
                 Network with Founders and CEOs of Africa&apos;s Leading
                 Technology Companies
-                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
+                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0  w-[5rem] rounded-full"></span>
               </h1>
               <p className={`${lato.className} font-[400]`}>
                 Participants will be provided with a comprehensive view of
@@ -198,7 +198,7 @@ const RwandaEvent = () => {
         </div>
         {/* second column */}
         <div className="col-span-3 ">
-          <div className=" min-h-screen flex items-center justify-center ">
+          <div className="  flex items-center justify-center ">
             <div className="flex flex-col items-start justify-center ">
               <div className="py-4  flex gap-4 items-end">
                 <Card
