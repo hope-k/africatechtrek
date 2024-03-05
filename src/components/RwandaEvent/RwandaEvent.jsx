@@ -6,7 +6,10 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import { Lato, Raleway } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700", "900"] });
-const raleway = Raleway({ subsets: ["latin"], weight: ["400", "700", "800", "900"] });
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
+});
 import Marquee from "react-fast-marquee";
 import PaystackSvg from "../../../public/assets/speakers/paystack.svg";
 import IremboSvg from "../../../public/assets/speakers/irembo.svg";
@@ -18,6 +21,21 @@ const clashDisplay = localFont({
   preload: true,
   display: "swap",
 });
+
+function Card({ day, title, content }) {
+  return (
+    <div className="w-fit rounded-md   items-center">
+      <div className="px-8 py-2 bg-green-600 rounded-t-md flex items-center gap-4">
+        <p className="text-white text-xl font-bold">Day {day}</p>
+        <p className="text-gray-200 text-xs text-left w-[60px]">{title}</p>
+      </div>
+      <div className="px-4 py-2 bg-zinc-100 rounded-b-md">
+        <p className="w-36 text-xs">{content}</p>
+      </div>
+    </div>
+  );
+}
+
 const RwandaEvent = () => {
   const itineraries = [
     {
@@ -77,27 +95,27 @@ const RwandaEvent = () => {
   };
 
   const speakers = [
-      {
-        name: "Zipline",
-        url: '/assets/speakers/zipline.svg'
-      } ,
-      {
-        name: "Paystack",
-        url: '/assets/speakers/paystack.svg'
-      },
-      {
-        name: "Irembo",
-        url: '/assets/speakers/irembo.svg'
-      },
-      {
-        name: "Kasha",
-        url: '/assets/speakers/kasha.png'
-      },
-      {
-        name: "Spenn",
-        url: '/assets/speakers/spenn.png'
-      },
-  ]
+    {
+      name: "Zipline",
+      url: "/assets/speakers/zipline.svg",
+    },
+    {
+      name: "Paystack",
+      url: "/assets/speakers/paystack.svg",
+    },
+    {
+      name: "Irembo",
+      url: "/assets/speakers/irembo.svg",
+    },
+    {
+      name: "Kasha",
+      url: "/assets/speakers/kasha.png",
+    },
+    {
+      name: "Spenn",
+      url: "/assets/speakers/spenn.png",
+    },
+  ];
 
   return (
     <section className="pb-[10rem] w-full space-y-[8rem] sm:space-y-[12rem]">
@@ -179,33 +197,52 @@ const RwandaEvent = () => {
           </div>
         </div>
         {/* second column */}
-        <div className="w-full col-span-3 ">
-          <div className="grid w-full h-full grid-cols-2 grid-rows-2 gap-[2px] sm:gap-2 justify-items-center items-baseline">
-            {itineraries.map((itinerary, index) => (
-              <div
-                key={index}
-                className="max-w-[300px]  h-full p-4   flex flex-col justify-center"
-              >
-                <div
-                  className={`${raleway.className} text-[#f4f3f3] font-[700] p-6 inset-0 bg-gradient-to-r from-[#3e863f] to-[#2ca45e] rounded-t-xl`}
-                >
-                  <h1 className="font-semibold uppercase">{itinerary.name}</h1>
-                  <h2 className={` font-[400]`}>{itinerary.title}</h2>
-                </div>
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  whileInView={{ height: "200px", opacity: 1 }}
-                  transition={{ duration: 0.75, ease: "circInOut" }}
-                  className="bg-[#f2f2f2ad] p-[clamp(0rem,2vw,2rem)] rounded-b-xl max-h-[200px]"
-                >
-                  <p
-                    className={`${lato.className} text-black font-[400] text-sm p-2 leading-5 md:text-[1rem] sm:p-0`}
-                  >
-                    {itinerary.description}
-                  </p>
-                </motion.div>
+        <div className="col-span-3 ">
+          <div className=" min-h-screen flex items-center justify-center ">
+            <div className="flex flex-col items-start justify-center ">
+              <div className="py-4  flex gap-4 items-end">
+                <Card
+                  day={1}
+                  title="CEO Office Hours"
+                  content="Meet CEOs and executives of Africa's leading technology companies including Irembo, Zipline, SPENN, Kasha and more."
+                />
+                <Card
+                  day={3}
+                  title="Paystack Deep-dive"
+                  content="Visit the Paystack Kigali HQ, and learn about the tech company reshaping payments across Africa."
+                />
               </div>
-            ))}
+
+              <div className="flex pl-3 sm:pl-8 py-2 gap-4 items-center">
+                <Card
+                  day={2}
+                  title="Zipline Deep-dive"
+                  content="Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana and Kenya."
+                />
+                <Card
+                  day={4}
+                  title="Gorilla Trek"
+                  content="See the famous Rwandan Mountain Gorillas, and enjoy the beautiful sites of Volcanoes National Park."
+                />
+              </div>
+
+              {/* <div className="bg-red-200 py-4 flex flex-col gap-4">
+        <div className="pl-12">
+          <Card
+            day={2}
+            title="Zipline Deep-dive"
+            content="Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana and Kenya."
+          />
+        </div>
+        <div className="pl-12">
+          <Card
+            day={2}
+            title="Zipline Deep-dive"
+            content="Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana and Kenya."
+          />
+        </div>
+      </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -216,7 +253,12 @@ const RwandaEvent = () => {
             <h1
               className={`${raleway.className} text-white font-[800] capitalize text-[clamp(1.5rem,1.875vw,1.875rem)] mb-5 md:mb-0`}
             >
-              count <span className='text-black'>every <br /> second</span> until <br />the event
+              count{" "}
+              <span className="text-black">
+                every <br /> second
+              </span>{" "}
+              until <br />
+              the event
             </h1>
             <h1
               className={`${raleway.className} font-[700] text-[clamp(2rem,6vw,6rem)] text-white`}
@@ -355,10 +397,7 @@ const RwandaEvent = () => {
           Speakers
         </h1>
 
-        <Marquee
-          gradient={false}
-          speed={40}
-        >
+        <Marquee gradient={false} speed={40}>
           <div className=" flex items-center w-full justify-around space-x-[clamp(7.5rem,8vw,8rem)] flex-row">
             <div className="relative ml-10 w-[clamp(10rem,15vw,15rem)] h-24">
               <Image
@@ -382,7 +421,6 @@ const RwandaEvent = () => {
                 alt="Irembo"
                 layout="fill"
                 priority={true}
-                
               />
             </div>{" "}
             <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
@@ -407,12 +445,11 @@ const RwandaEvent = () => {
       {/* WHATS INCLUDDED */}
       <div className=" grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem]">
         <div className="space-y-10 col-span-3 mx-[1rem] ">
-          <div
-            className={`${raleway.className} font-[700]  capitalize`}
-          >
+          <div className={`${raleway.className} font-[700]  capitalize`}>
             <h1 className="relative text-[clamp(2rem,2.5vw,2.5rem)] leading-10 text-black capitalize">
-              Join Us For An <span className='font-[800]'>Unforgettable Adventure</span> In The{" "}
-              <span className='font-[800]'>Land Of A Thousand Hills </span>{" "}
+              Join Us For An{" "}
+              <span className="font-[800]">Unforgettable Adventure</span> In The{" "}
+              <span className="font-[800]">Land Of A Thousand Hills </span>{" "}
               <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
             </h1>
           </div>
