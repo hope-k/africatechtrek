@@ -459,7 +459,7 @@ const RwandaEvent = () => {
           className="relative h-[400px] mx-1 "
           viewport={{ once: true }}
         >
-          <img
+          <Image
             alt="Rwanda Event"
             className=" w-full h-full rounded-xl sm:rounded-none  object-cover md:rounded-l-xl  object-center"
             src="/images/who-are-we.jpg"
