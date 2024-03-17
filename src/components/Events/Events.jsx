@@ -82,7 +82,7 @@ const Events = () => {
               >
                 <div className=" flex flex-row space-x-4">
                   <h1
-                    className={`${raleway.className} text-[38px] leading-7 uppercase font-[500]`}
+                    className={`${raleway.className} text-[38px] leading-10 uppercase font-[500]`}
                   >
                     {event?.content?.date}
                   </h1>

@@ -6,6 +6,7 @@ import { Lato, Raleway } from "next/font/google";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import localFont from "next/font/local";
+import RwandaEvent from "../RwandaEvent/RwandaEvent";
 const clashDisplay = localFont({
   src: "../../fonts/OTF/ClashDisplay-Variable.ttf",
   preload: true,
@@ -72,127 +73,10 @@ const HomePage = () => {
     },
   ];
 
-  const events = [
-    {
-      name: (
-        <>
-          {" "}
-          <span className="font-[400]">rwanda</span> <br />{" "}
-          <span className="font-[600]">edition</span>
-        </>
-      ),
-      link: "/events/rwanda",
-      content: {
-        date: <span>july 2024</span>,
-        text: "In the heart of KIGALI, find inspiration and relaxation while teaming up with global tech entrepreneurs.",
-      },
-    },
-    {
-      name: (
-        <>
-          <span className="font-[400]">nigeria</span> <br />
-          <span className="font-[600]">edition</span>
-        </>
-      ),
-      link: "/events/nigeria",
-      content: {
-        date: <span>coming soon</span>,
-      },
-    },
-  ];
+
   return (
     <>
-      <Hero />
-      {/* who are we */}
-      <section className="flex sm:flex-row sm:my-[5rem] my-[3rem]  flex-col   sm:mr-[clamp(0rem,4vw,8rem)] gap-[3rem] sm:gap-[5rem] ">
-        <div className="relative w-full sm:w-[clamp(0px,40vw,40vw)] h-[25rem] ">
-          <Image
-            className="sm:rounded-r-xl px-1 rounded-xl sm:rounded-none sm:px-0 object-center"
-            src="/images/who-are-we.jpg"
-            alt="who are we"
-            layout="fill"
-          />
-        </div>
-        <div className="flex flex-col mx-[1rem] sm:w-[clamp(5rem,40vw,40vw)]">
-          <h1
-            className={`${raleway.className} mb-6 text-[clamp(2.125rem,4vw,2.688rem)] relative font-[700] text-black capitalize leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)]`}
-          >
-            what is <br /> africa tech trek
-            <span className="bg-green-600 h-2 absolute bottom-[-6px] left-0 w-[5rem] rounded-full"></span>
-          </h1>
-          <div
-            className={`${lato.className} text-[clamp(0rem,4vw,1.125rem)]  `}
-          >
-            Africa Tech Trek is an immersive event designed for entrepreneurs,
-            investors, and business executives interested in learning about the
-            African technology ecosystem. We give participants access to a
-            network of African technology leaders, transforming how business is
-            done across the continent.
-          </div>
-        </div>
-      </section>
-      {/* events */}
-
-      <section className="flex flex-col sm:flex-row sm:my-[8rem] my-[3rem]   m-2 sm:mx-[clamp(0rem,4vw+3rem,8rem)] gap-[3rem] sm:gap-[5rem]">
-        <div className="flex flex-col px-4 w-full sm:w-[clamp(0rem,40vw,40vw)]">
-          <h1
-            className={`${raleway.className} relative  w-fit mb-6 text-[clamp(2.125rem,4vw,2.425rem)] font-[700] text-black capitalize leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)]`}
-          >
-            upcoming <br />
-            events
-            <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
-          </h1>
-          <div
-            className={`${lato.className}  text-[clamp(0rem,4vw,1.125rem)]  `}
-          >
-            Check out our upcoming events and reserve your spot today.
-          </div>
-        </div>
-
-        {/* card */}
-
-        <div className="  flex justify-start  flex-col h-full   lg:flex-row gap-2 w-full sm:w-[clamp(0rem,60vw,60vw)] pb-[3rem]  ">
-          {events.map((event, idx) => (
-            <Link
-              href={event.link}
-              className=" relative rounded-t-lg object-cover w-full sm:w-[361px] h-full "
-              key={idx}
-            >
-              <div className="relative  w-full sm:w-[361px] h-[266px]">
-                <div className="absolute rounded-[4px] inset-0 bg-gradient-to-b from-[#47c649] to-[#079643] opacity-75 z-[2]"></div>
-                <div>
-                  <Image
-                    layout="fill"
-                    alt="event"
-                    src="/images/accomodation.jpg"
-                    className="rounded-[4px] object-cover"
-                  />
-                </div>
-                <div
-                  className={`text-white z-[3] text-5xl absolute bottom-8 left-8 capitalize  ${clashDisplay.className}`}
-                >
-                  {event.name}
-                </div>
-              </div>
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                whileInView={{ height: "150px", opacity: 1 }}
-                transition={{ duration: 0.85, ease: "circOut" }}
-                className="bg-white shadow-md text-black  p-10 rounded-b-lg "
-              >
-                <div className=" flex flex-row space-x-4">
-                  <h1
-                    className={`${raleway.className} text-[38px] leading-7 uppercase font-[500]`}
-                  >
-                    {event?.content?.date}
-                  </h1>
-                  <p className="text-sm">{event?.content?.text}</p>
-                </div>
-              </motion.div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <RwandaEvent />
 
       {/* newsletter */}
       <section>
@@ -243,7 +127,7 @@ const HomePage = () => {
                 <button
                   disabled={loading || !email}
                   type="submit"
-                  className="border disabled:opacity-40 hover:bg-[#ebff71] hover:border-[#ebff71] transition-all duration-300 border-gray-500 p-3 px-10 rounded-md uppercase"
+                  className="border disabled:opacity-40 hover:bg-green-600 hover:border-600 transition-all duration-300 border-gray-500 p-3 px-10 rounded-md uppercase"
                 >
                   {loading ? "..." : "Subscribe now"}
                 </button>

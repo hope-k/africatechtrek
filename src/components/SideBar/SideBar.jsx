@@ -22,10 +22,12 @@ const SideBar = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isRsvp = pathname === "/rsvp";
 
   const links = [
     { link: "/", name: "Home" },
-    { link: "/events", name: "Events" },
     { link: "/rsvp", name: "Rsvp" },
   ];
   // const handleSubmit = (e) => {
@@ -57,21 +59,29 @@ const SideBar = () => {
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: sidebarOpen ? 0 : "-100%" }}
-        transition={{ duration: .8, ease: "circInOut" }}
-        exit={{ x: "-100%", transition: { duration: .2 } }}
+        transition={{ duration: 0.7, type: "spring", bounce: 0 }}
+        exit={{ x: "-100%", transition: { duration: 0.2 } }}
         className={
-          " block w-full h-[100vh] bg-[#1d2b21] z-[50]  right-0 sm:hidden absolute poppins-font  left-0 "
+          " block w-full h-[100vh] bg-[#0a1f10cf] z-[50]  right-0 sm:hidden fixed  poppins-font  left-0 "
         }
       >
-        <div className="px-4 flex flex-col mt-[8rem]">
+        <div className="px-4 flex flex-col justify-center items-center uppercase  mt-[20rem]">
           <nav>
-            <ul className="flex flex-col  h-full w-full space-y-4 font-[400] tracking-wide py-4">
+            <ul className="flex flex-col  h-full w-full space-y-10 font-[400] tracking-wide py-4">
               {links.map((link, index) => (
                 <Link onClick={toggleSidebar} key={link.link} href={link.link}>
                   <li
-                    className={`${raleway.className} text-[40px] cursor-pointer text-white hover:text-black/40 montserrat-font font-[200] tracking-tight`}
+                    className={`${raleway.className} relative text-[40px] cursor-pointer text-white hover:text-black/40 montserrat-font font-[200] tracking-tight`}
                   >
                     {link.name}
+                    <motion.span
+                      initial={{ x: -50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ type: "spring" }}
+                      className={`${
+                        link.link === pathname ? " w-full " : " w-0 "
+                      } h-[2px]   left-0 z-50 bg-green-400 absolute -bottom-2`}
+                    ></motion.span>
                   </li>
                 </Link>
               ))}
@@ -144,14 +154,10 @@ const SideBar = () => {
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: sidebarOpen ? 0 : "-100%", opacity: [1, 0] }}
-        transition={{
-          duration: .55,
-          ease: "circInOut",
-          opacity: { duration: 0.7 },
-        }}
-        exit={{ x: "-100%", transition: { duration: .2 } }}
+        transition={{ duration: 0.4, type: "spring", bounce: 0 }}
+        exit={{ x: "-100%", transition: { duration: 0.2 } }}
         className={
-          " bg-white block w-full h-[100vh] top-[0rem] right-0 sm:hidden absolute left-0 z-[40]"
+          " bg-white block w-full h-[100vh] top-[0rem] right-0 sm:hidden fixed left-0 z-[40]"
         }
       ></motion.div>
     </div>

@@ -27,7 +27,9 @@ function Card({ day, title, content }) {
     <div className="min-w-fit rounded-md   items-center">
       <div className="sm:px-8 px-5 py-2 3xl:px-12 3xl:py-4 bg-gradient-to-r from-[#80B650] to-green-600 rounded-t-md flex items-center gap-4">
         <p className="text-white text-xl font-bold">Day {day}</p>
-        <p className="text-gray-200 text-xs  3xl:text-lg text-left w-[60px]">{title}</p>
+        <p className="text-gray-200 text-xs  3xl:text-lg text-left w-[60px]">
+          {title}
+        </p>
       </div>
       <div className="sm:px-4 px-3 py-2 3xl:px-[3rem] 3xl:py-[3rem]  bg-zinc-100 rounded-b-md">
         <p className="w-36 3xl:w-[15rem] text-xs 3xl:text-lg">{content}</p>
@@ -119,42 +121,30 @@ const RwandaEvent = () => {
 
   return (
     <section className="pb-[10rem] w-full space-y-[8rem] sm:space-y-[12rem]">
-      <div className="w-full h-[67vh] sm:h-[80vh] relative ">
+      <div className="w-full h-[75vh] sm:h-[80vh] relative mb-[15rem]">
         <div className="w-full h-full ">
           <Image
             alt="Rwanda Event"
-            className=" w-full h-full aspect-square brightness-[40%] object-cover  object-bottom"
+            className=" w-full h-full object-cover brightness-[50%] "
             src="/images/rwandahero.jpg"
             layout="fill"
+            objectPosition="center bottom"
+            quality={100}
           />
         </div>
-        <div className="absolute bottom-[10rem] left-[clamp(.2rem,5vw,5rem)]">
+        <div className="absolute bottom-[clamp(-5rem,-10vw,-10rem)] left-[clamp(.2rem,5vw,5rem)]">
           <div
-            className={`${clashDisplay.className} text-[clamp(1rem,7vw+2rem,7.256rem)] text-[#ccc]  leading-[clamp(0.8rem,3vw+1rem,3rem)] font-bold mt-10`}
+            className={`${clashDisplay.className} uppercase text-[clamp(3.125rem,6.756vw,6.756rem)] text-white  leading-[.9]  mt-10`}
           >
-            <motion.h1
-              initial={{ x: -30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.65, ease: "circOut" }}
-              className="font-[400]"
-            >
-              Rwanda
-            </motion.h1>
-            <br />
-            <motion.h1
-              initial={{ x: 30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.65, ease: "circOut" }}
-            >
-              Edition
-            </motion.h1>
+            <span className="">africa</span> <br /> <span className='font-bold text-green-700'>tech trek</span> <br />
+            <span className="font-bold text-[clamp(2rem,3.725vw,3.725rem)] text-[#355f8b]">rwanda &nbsp; edition</span>
           </div>
         </div>
       </div>
       {/* itenery */}
       <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center my-[5rem] w-full sm:w-[90%] mx-auto gap-[5rem] ">
         {/* first column */}
-        <div className="  col-span-3 ">
+        <div className="  col-span-3 mt-[5rem] ">
           <div className=" leading-7  mx-[1rem] md:mx-0">
             <h1
               className={`${lato.className}   uppercase font-semibold mb-[4rem]`}
@@ -246,211 +236,15 @@ const RwandaEvent = () => {
           </div>
         </div>
       </div>
-      {/* COUNTDOWN */}
-      <CountDown
-        renderer={({ days, hours, minutes, seconds, completed }) => (
-          <div className="flex flex-col md:flex-row py-[3rem] bg-gradient-to-r from-[#699649] to-[#079643] items-center justify-between px-[clamp(1rem,8vw,8rem)] space-y-2 my-10">
-            <h1
-              className={`${raleway.className} text-white font-[800] capitalize text-[clamp(1.5rem,1.875vw,1.875rem)] mb-5 md:mb-0`}
-            >
-              count{" "}
-              <span className="text-black">
-                every <br /> second
-              </span>{" "}
-              until <br />
-              the event
-            </h1>
-            <h1
-              className={`${raleway.className} font-[700] text-[clamp(2rem,6vw,6rem)] text-white`}
-            >
-              {days} D: {hours} H: {minutes} M: {seconds} S
-            </h1>
-          </div>
-        )}
-        date={Date.now() + 81 * 24 * 60 * 60 * 1000}
-      />
-      {/* who should attend */}
-      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center mb-[5rem]  md:ml-[clamp(1rem,6vw,6rem)]  gap-[5rem] overflow-hidden">
-        {/* first column */}
-        <div className="   col-span-3">
-          <div className=" leading-7 space-y-5 mx-[1rem]">
-            <motion.div
-              viewport={{ once: true }}
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "circInOut" }}
-              className="space-y-10"
-            >
-              <h1
-                className={`${raleway.className} font-[700] md:max-w-[20ch]   relative mb-2  text-[clamp(2rem,2vw,2.25rem)] capitalize`}
-              >
-                who should attend africa tech trek
-                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
-              </h1>
-              <p className={`${lato.className} font-[400]`}>
-                Africa Tech Trek is tailored for entrepreneurs seeking market
-                insights, companies aiming to expand their reach, and investors
-                exploring promising opportunities. Our diverse participants
-                include startup founders, corporate executives, and venture
-                capitalists, ensuring a dynamic mix of perspectives throughout
-                the journey. Expressions of interest are required prior to 22
-                May 2024.
-              </p>
-              <div className={`text-[#128255] font-[700] ${lato.className}`}>
-                *Note that we have limited the size to between 10 and 20 people.
-              </div>
-            </motion.div>
-          </div>
-        </div>
-        {/* second column */}
-        <div className="w-full col-span-3 ">
-          <motion.div
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.8, ease: "circInOut" }}
-            className="relative  h-[200px] mb-2 mx-1 md:mx-0"
-          >
-            <Image
-              alt="Rwanda Event"
-              className="  h-full  aspect-square origin-right rounded-xl md:rounded-none    brightness-[80%] object-cover md:rounded-l-xl  object-left "
-              src="/images/whoshouldattend.png"
-              layout="fill"
-            />
-          </motion.div>
-          <div className="flex flex-col mx-[1rem] sm:mx-0 sm:flex-row  min-h-[20rem] sm:w-full">
-            <div
-              className={`${raleway.className} bg-[#5092A7] rounded-t-xl rounded-b sm:rounded-none  md:rounded-l-xl md:px-[3rem] p-4 flex flex-row md:flex-col justify-between md:justify-center  text-white`}
-            >
-              <h1 className="uppercase text-lg font-normal whitespace-nowrap">
-                total cost
-              </h1>
-              <h1 className={` font-[700] text-xl`}>$15,000</h1>
-              <h1 className="capitalize font-light">(tax exclusive)</h1>
-            </div>
-
-            <div
-              className={`${lato.className} flex flex-col justify-center  mx-4 pt-2 `}
-            >
-              <p>
-                The participation fee for Africa Tech Trek - Rwanda Edition
-                includes accommodation and all meals. The cost does not include
-                flights or travel insurance. 
-              </p>
-              <br />
-              <p className="text-[#118255]">
-                60% of the fee will be retained by the Akori Group in the event
-                of cancellation by a participant within two weeks of the start
-                of the program.100% of the fee will be retained if cancellation
-                takes place less than one week before the start date.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* accommodation */}
-      <div className="grid grid-cols-1 md:grid-cols-2 md:ml-[clamp(1rem,5vw,5rem)] gap-[4rem]  ">
-        <div className="space-y-5  mx-[1rem] ">
-          <div
-            className={`${raleway.className} font-[700]  capitalize space-y-3`}
-          >
-            <h1 className="relative text-[clamp(2rem,2vw,2.25rem)]">
-              your accommodation
-              <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
-            </h1>
-            <h2 className="font-[800]">
-              Radission Blu Hotel & Convention Centre, Kigali
-            </h2>
-            <h3 className="text-[#AAAAAA]">
-              #1 Highest Rated of 1,182 places in Rwanda
-            </h3>
-          </div>
-          <p className={`${lato.className} font-[400]`}>
-            Nestled in the heart of Rwanda, the Radisson Blu hotel in Kigali
-            offers a luxurious escape surrounded by lush landscapes. Enjoy the
-            perfect blend of modern comfort and captivating views. Savour
-            upscale dining experiences and immerse yourself in the scenic charm
-            that defines Rwanda&apos;s beauty. Radisson Blu invites you to
-            unwind and explore the best of both luxury and nature in this
-            African gem.
-          </p>
-        </div>
-        <motion.div
-          initial={{ scale: 0.95 }}
-          whileInView={{ scale: 1 }}
-          transition={{ duration: 1, ease: "circInOut" }}
-          className="relative h-[400px] mx-1 "
-          viewport={{ once: true }}
-        >
-          <Image
-            alt="Rwanda Event"
-            className=" w-full h-full rounded-xl sm:rounded-none aspect-auto brightness-[80%] object-cover md:rounded-l-xl  object-bottom"
-            src="/images/accomodation.jpg"
-            layout="fill"
-          />
-        </motion.div>
-      </div>
-      {/* Speakers */}
-      <div className="bg-gray-800 w-full pt-10 pb-20 flex flex-col items-center my-3">
-        <h1
-          className={`mb-10 text-white uppercase text-[clamp(1.2rem,1.7vw,1.725rem)] ${clashDisplay.className} font-[500] relative`}
-        >
-          Speakers
-        </h1>
-
-        <Marquee gradient={false} speed={40}>
-          <div className=" flex items-center w-full justify-around space-x-[clamp(7.5rem,8vw,8rem)] flex-row">
-            <div className="relative ml-10 w-[clamp(10rem,15vw,15rem)] h-24">
-              <Image
-                src={"/assets/speakers/zipline.svg"}
-                alt="Zipline"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
-              <Image
-                src={"/assets/speakers/paystack.svg"}
-                alt="Paystack"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
-              <Image
-                src={"/assets/speakers/irembo.svg"}
-                alt="Irembo"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
-              <Image
-                src={"/assets/speakers/kasha.png"}
-                alt="Kasha"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
-              <Image
-                src={"/assets/speakers/spenn.png"}
-                alt="Spenn"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-          </div>
-        </Marquee>
-      </div>
-      {/* WHATS INCLUDDED */}
-      <div className=" grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem]">
+            {/* WHATS INCLUDDED */}
+            <div className=" grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem]">
         <div className="space-y-10 col-span-3 mx-[1rem] ">
           <div className={`${raleway.className} font-[700]  capitalize`}>
             <h1 className="relative text-[clamp(2rem,2.5vw,2.5rem)] leading-10 text-black capitalize">
               Join Us For An{" "}
               <span className="font-[800]">Unforgettable Adventure</span> In The{" "}
               <span className="font-[800]">Land Of A Thousand Hills </span>{" "}
-              <span className="bg-green-600 h-2 absolute bottom-[-5px] left-0 w-[5rem] rounded-full"></span>
+              <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
             </h1>
           </div>
           <p className={`${lato.className} font-[400]`}>
@@ -561,6 +355,169 @@ const RwandaEvent = () => {
           </motion.div>
         </div>
       </div>
+   
+      {/* who should attend */}
+      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center mb-[5rem]  md:ml-[clamp(1rem,6vw,6rem)]  gap-[5rem] overflow-hidden">
+        {/* first column */}
+        <div className="   col-span-3">
+          <div className=" leading-7 space-y-5 mx-[1rem]">
+            <motion.div
+              viewport={{ once: true }}
+              initial={{ x: -20, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "circInOut" }}
+              className="space-y-10"
+            >
+              <h1
+                className={`${raleway.className} font-[700] md:max-w-[20ch]   relative mb-2  text-[clamp(2rem,2vw,2.25rem)] capitalize`}
+              >
+                who should attend africa tech trek
+                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
+              </h1>
+              <p className={`${lato.className} font-[400]`}>
+                Africa Tech Trek is tailored for entrepreneurs seeking market
+                insights, companies aiming to expand their reach, and investors
+                exploring promising opportunities. Our diverse participants
+                include startup founders, corporate executives, and venture
+                capitalists, ensuring a dynamic mix of perspectives throughout
+                the journey. Expressions of interest are required prior to 22
+                May 2024.
+              </p>
+              <div className={`text-[#128255] font-[700] ${lato.className}`}>
+                *Note that we have limited the size to between 10 and 20 people.
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        {/* second column */}
+        <div className="w-full col-span-3 ">
+      
+          <div className="flex flex-col mx-[1rem] sm:mx-0 sm:flex-row  min-h-[20rem] sm:w-full">
+            <div
+              className={`${raleway.className} bg-[#5092A7] rounded-t-xl rounded-b sm:rounded-none  md:rounded-l-xl md:px-[3rem] p-4 flex flex-row md:flex-col justify-between md:justify-center  text-white`}
+            >
+              <h1 className="uppercase text-lg font-normal whitespace-nowrap">
+                total cost
+              </h1>
+              <h1 className={` font-[700] text-xl`}>$15,000</h1>
+              <h1 className="capitalize font-light">(tax exclusive)</h1>
+            </div>
+
+            <div
+              className={`${lato.className} flex flex-col justify-center  mx-4 pt-2 `}
+            >
+              <p>
+                The participation fee for Africa Tech Trek - Rwanda Edition
+                includes accommodation and all meals. The cost does not include
+                flights or travel insurance. 
+              </p>
+              <br />
+              <p className="text-[#118255]">
+                60% of the fee will be retained by the Akori Group in the event
+                of cancellation by a participant within two weeks of the start
+                of the program.100% of the fee will be retained if cancellation
+                takes place less than one week before the start date.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* accommodation */}
+      <div className="grid grid-cols-1 md:grid-cols-2 md:ml-[clamp(1rem,5vw,5rem)] gap-[4rem]  ">
+        <div className="space-y-5  mx-[1rem] ">
+          <div
+            className={`${raleway.className} font-[700]  capitalize space-y-3`}
+          >
+            <h1 className="relative text-[clamp(2rem,2vw,2.25rem)]">
+              your accommodation
+              <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0 w-[5rem] rounded-full"></span>
+            </h1>
+            <h2 className="font-[800]">
+              Radission Blu Hotel & Convention Centre, Kigali
+            </h2>
+            <h3 className="text-[#AAAAAA]">
+              #1 Highest Rated of 1,182 places in Rwanda
+            </h3>
+          </div>
+          <p className={`${lato.className} font-[400]`}>
+            Nestled in the heart of Rwanda, the Radisson Blu hotel in Kigali
+            offers a luxurious escape surrounded by lush landscapes. Enjoy the
+            perfect blend of modern comfort and captivating views. Savour
+            upscale dining experiences and immerse yourself in the scenic charm
+            that defines Rwanda&apos;s beauty. Radisson Blu invites you to
+            unwind and explore the best of both luxury and nature in this
+            African gem.
+          </p>
+        </div>
+        <motion.div
+          initial={{ scale: 0.95 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 1, ease: "circInOut" }}
+          className="relative h-[400px] mx-1 "
+          viewport={{ once: true }}
+        >
+          <Image
+            alt="Rwanda Event"
+            className=" w-full h-full rounded-xl sm:rounded-none aspect-auto  object-cover md:rounded-l-xl  object-bottom"
+            src="/images/accomodation.jpg"
+            layout="fill"
+          />
+        </motion.div>
+      </div>
+      {/* Speakers */}
+      <div className="bg-slate-200 w-full pt-10 pb-20 flex flex-col items-center my-3">
+        <h1
+          className={`mb-10 text-gray-800 uppercase text-[clamp(1.2rem,1.7vw,1.725rem)] ${clashDisplay.className} font-[500] relative`}
+        >
+          Speakers
+        </h1>
+
+        <Marquee gradient={false} speed={20}>
+          <div className=" flex items-center w-full justify-around space-x-[clamp(7.5rem,8vw,8rem)] flex-row">
+            <div className="relative ml-10 w-[clamp(10rem,15vw,15rem)] h-24">
+              <Image
+                src={"/assets/speakers/zipline.svg"}
+                alt="Zipline"
+                layout="fill"
+                priority={true}
+              />
+            </div>{" "}
+            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
+              <Image
+                src={"/assets/speakers/paystack.svg"}
+                alt="Paystack"
+                layout="fill"
+                priority={true}
+              />
+            </div>{" "}
+            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
+              <Image
+                src={"/assets/speakers/irembo.svg"}
+                alt="Irembo"
+                layout="fill"
+                priority={true}
+              />
+            </div>{" "}
+            <div className="relative w-[200px] h-[80px]">
+              <Image
+                src={"/assets/speakers/kasha.png"}
+                alt="Kasha"
+                layout="fill"
+                priority={true}
+              />
+            </div>{" "}
+            <div className="relative w-[200px] h-[80px]">
+              <Image
+                src={"/assets/speakers/spenn.png"}
+                alt="Spenn"
+                layout="fill"
+                priority={true}
+              />
+            </div>{" "}
+          </div>
+        </Marquee>
+      </div>
+
     </section>
   );
 };
