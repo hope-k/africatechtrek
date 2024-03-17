@@ -137,10 +137,10 @@ const RwandaEvent = () => {
             className={`${clashDisplay.className} uppercase text-[clamp(3.125rem,6.756vw,6.756rem)] text-white  leading-[.9]  mt-10`}
           >
             <span className="">africa</span> <br />{" "}
-            <span className="font-bold text-green-700">tech &nbsp; trek</span>{" "}
+            <span className="font-bold text-green-700">tech&nbsp;trek</span>{" "}
             <br />
             <span className="font-bold text-[clamp(2rem,3.725vw,3.725rem)] text-[#355f8b]">
-              rwanda &nbsp; edition
+              rwanda&nbsp;edition
             </span>
           </div>
         </div>
