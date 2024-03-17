@@ -136,8 +136,12 @@ const RwandaEvent = () => {
           <div
             className={`${clashDisplay.className} uppercase text-[clamp(3.125rem,6.756vw,6.756rem)] text-white  leading-[.9]  mt-10`}
           >
-            <span className="">africa</span> <br /> <span className='font-bold text-green-700'>tech trek</span> <br />
-            <span className="font-bold text-[clamp(2rem,3.725vw,3.725rem)] text-[#355f8b]">rwanda &nbsp; edition</span>
+            <span className="">africa</span> <br />{" "}
+            <span className="font-bold text-green-700">tech &nbsp; trek</span>{" "}
+            <br />
+            <span className="font-bold text-[clamp(2rem,3.725vw,3.725rem)] text-[#355f8b]">
+              rwanda &nbsp; edition
+            </span>
           </div>
         </div>
       </div>
@@ -236,8 +240,8 @@ const RwandaEvent = () => {
           </div>
         </div>
       </div>
-            {/* WHATS INCLUDDED */}
-            <div className=" grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem]">
+      {/* WHATS INCLUDDED */}
+      <div className=" grid grid-cols-1 md:grid-cols-6 justify-items-center my-[2rem] w-full sm:w-[90%] mx-auto gap-[5rem]">
         <div className="space-y-10 col-span-3 mx-[1rem] ">
           <div className={`${raleway.className} font-[700]  capitalize`}>
             <h1 className="relative text-[clamp(2rem,2.5vw,2.5rem)] leading-10 text-black capitalize">
@@ -355,7 +359,7 @@ const RwandaEvent = () => {
           </motion.div>
         </div>
       </div>
-   
+
       {/* who should attend */}
       <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center mb-[5rem]  md:ml-[clamp(1rem,6vw,6rem)]  gap-[5rem] overflow-hidden">
         {/* first column */}
@@ -391,7 +395,6 @@ const RwandaEvent = () => {
         </div>
         {/* second column */}
         <div className="w-full col-span-3 ">
-      
           <div className="flex flex-col mx-[1rem] sm:mx-0 sm:flex-row  min-h-[20rem] sm:w-full">
             <div
               className={`${raleway.className} bg-[#5092A7] rounded-t-xl rounded-b sm:rounded-none  md:rounded-l-xl md:px-[3rem] p-4 flex flex-row md:flex-col justify-between md:justify-center  text-white`}
@@ -517,7 +520,6 @@ const RwandaEvent = () => {
           </div>
         </Marquee>
       </div>
-
     </section>
   );
 };
