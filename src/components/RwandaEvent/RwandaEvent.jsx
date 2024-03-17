@@ -455,15 +455,16 @@ const RwandaEvent = () => {
         <motion.div
           initial={{ scale: 0.95 }}
           whileInView={{ scale: 1 }}
-          transition={{ duration: 1, ease: "circInOut" }}
+          transition={{ duration: 1, type: "spring" }}
           className="relative h-[400px] mx-1 "
           viewport={{ once: true }}
         >
-          <Image
+          <img
             alt="Rwanda Event"
-            className=" w-full h-full rounded-xl sm:rounded-none aspect-auto  object-cover md:rounded-l-xl  object-bottom"
-            src="/images/accomodation.jpg"
+            className=" w-full h-full rounded-xl sm:rounded-none  object-cover md:rounded-l-xl  object-center"
+            src="/images/who-are-we.jpg"
             layout="fill"
+            quality={100}
           />
         </motion.div>
       </div>
