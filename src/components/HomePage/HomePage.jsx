@@ -78,64 +78,7 @@ const HomePage = () => {
     <>
       <RwandaEvent />
 
-      {/* newsletter */}
-      <section>
-        <form
-          onSubmit={handleSubmit}
-          className="w-full text-black px-4 md:px-0"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            viewport={{ once: true }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 1.3,
-              type: "spring",
-              ease: "easeIn",
-              bounce: 0,
-            }}
-            className="w-full flex flex-col items-center justify-center py-20"
-          >
-            <h1 className="uppercase mb-4 font-[400] leading-7 md:leading-[38.4px] text-[22px] md:text-[32px] poppins-font text-center w-full md:max-w-[40%]">
-              SIGN UP FOR THE LATEST NEWS AND INSIGHTS FROM africa tech trek{" "}
-            </h1>
 
-            {submitted ? (
-              <h1 className="text-[#003905] font-[500] mt-10 text-center  montserrat-font">
-                Thank you! your submission has been received!
-              </h1>
-            ) : (
-              <>
-                <div
-                  className={
-                    " mb-6 space-x-4 mt-4 border-b border-black  flex flex-row items-center w-full lg:max-w-[30rem] "
-                  }
-                >
-                  <input
-                    onChange={handleChange}
-                    className=" bg-transparent focus-within:bg-transparent text-black h-[3rem] outline-none w-full pr-10"
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                  />
-                  <img
-                    className="w-6 h-2 transition-all duration-300 ease-in-out"
-                    src="https://uploads-ssl.webflow.com/63ff35589070572b10295446/63ff40b9a75a0423828b9f3d_su-arrow.svg"
-                    alt=""
-                  />
-                </div>
-                <button
-                  disabled={loading || !email}
-                  type="submit"
-                  className="border disabled:opacity-40 hover:bg-green-600 hover:border-600 transition-all duration-300 border-gray-500 p-3 px-10 rounded-md uppercase"
-                >
-                  {loading ? "..." : "Subscribe now"}
-                </button>
-              </>
-            )}
-          </motion.div>
-        </form>
-      </section>
       {/* testimonials */}
 
       <section className="bg-[#F0F0F0] w-full py-[5rem] my-[5rem] px-4">
@@ -171,7 +114,8 @@ const HomePage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="flex flex-col sm:flex-row px-4 sm:mx-[clamp(0rem,4vw+3rem,8rem)] gap-[5rem] md:gap-[10rem]">
+      <section className="flex my-[10rem] flex-col sm:flex-row px-4 sm:mx-[clamp(0rem,4vw+3rem,8rem)] gap-[5rem] md:gap-[10rem]">
+
         <div className="md:w-[40%] ">
           <h1 className="text-[clamp(2.125rem,4vw,2.625rem)] leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)] capitalize mb-4 font-[700] text-[#86A639]">
             frequently <br />
@@ -210,7 +154,7 @@ const HomePage = () => {
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: active === idx ? "auto" : 0 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.600, type:"spring", bounce:0 }}
                   className={`overflow-hidden  bg-[#e3e3e3] rounded pl-4`}
                 >
                   <div className="p-4 text-sm">{faq.answer}</div>
@@ -219,6 +163,65 @@ const HomePage = () => {
             ))
           }
         </div>
+      </section>
+
+            {/* newsletter */}
+            <section>
+        <form
+          onSubmit={handleSubmit}
+          className="w-full text-black px-4 md:px-0"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            viewport={{ once: true }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 1.3,
+              type: "spring",
+              ease: "easeIn",
+              bounce: 0,
+            }}
+            className="w-full flex flex-col items-center justify-center py-20"
+          >
+            <h1 className="uppercase mb-4 font-[400] leading-7 md:leading-[38.4px] text-[22px] md:text-[32px] poppins-font text-center w-full md:max-w-[40%]">
+              SIGN UP FOR THE LATEST NEWS AND INSIGHTS FROM africa tech trek{" "}
+            </h1>
+
+            {submitted ? (
+              <h1 className="text-[#003905] font-[500] mt-10 text-center  montserrat-font">
+                Thank you! your submission has been received!
+              </h1>
+            ) : (
+              <>
+                <div
+                  className={
+                    " mb-6 space-x-4 mt-4 border-b border-black  flex flex-row items-center max-w-fit px-10 lg:max-w-[30rem] "
+                  }
+                >
+                  <input
+                    onChange={handleChange}
+                    className=" bg-transparent focus-within:bg-transparent text-black h-[3rem] outline-none w-full pr-10"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                  />
+                  <img
+                    className="w-6 h-2 transition-all duration-300 ease-in-out"
+                    src="https://uploads-ssl.webflow.com/63ff35589070572b10295446/63ff40b9a75a0423828b9f3d_su-arrow.svg"
+                    alt=""
+                  />
+                </div>
+                <button
+                  disabled={loading || !email}
+                  type="submit"
+                  className="border disabled:opacity-40 hover:bg-green-600 hover:border-600 transition-all duration-300 border-gray-500 p-3 px-10 rounded-md uppercase"
+                >
+                  {loading ? "..." : "Subscribe now"}
+                </button>
+              </>
+            )}
+          </motion.div>
+        </form>
       </section>
     </>
   );

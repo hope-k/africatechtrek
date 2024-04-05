@@ -62,7 +62,7 @@ const SideBar = () => {
         transition={{ duration: 0.7, type: "spring", bounce: 0 }}
         exit={{ x: "-100%", transition: { duration: 0.2 } }}
         className={
-          " block w-full h-[100vh] bg-[#0a1f10cf] z-[50]  right-0 sm:hidden fixed  poppins-font  left-0 "
+          " block w-full h-[100vh] bg-[#0a1f10f1] z-[100]  right-0 sm:hidden fixed  poppins-font  left-0 "
         }
       >
         <div className="px-4 flex flex-col justify-center items-center uppercase  mt-[20rem]">
@@ -157,7 +157,7 @@ const SideBar = () => {
         transition={{ duration: 0.4, type: "spring", bounce: 0 }}
         exit={{ x: "-100%", transition: { duration: 0.2 } }}
         className={
-          " bg-white block w-full h-[100vh] top-[0rem] right-0 sm:hidden fixed left-0 z-[40]"
+          " bg-white block w-full h-[100vh] top-[0rem] right-0 sm:hidden fixed left-0 z-[90]"
         }
       ></motion.div>
     </div>

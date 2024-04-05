@@ -52,7 +52,7 @@ const Rsvp = () => {
       <motion.div
         initial={{ opacity: 0, y: 70 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex  flex-col w-full items-center px-3 sm:px-10"
+        className="flex  flex-col w-full h-full items-center mt-[6rem] px-3 sm:px-10"
       >
         {/* form title */}
         <div className="text-center">
@@ -111,7 +111,7 @@ const Rsvp = () => {
             <button
               type="submit"
               disabled={loading || !form.phone || !form.name || !form.email}
-              className="disabled:opacity-50 text-white border border-[#19523e] lg:w-[10rem] w-full bg-[#19523e] rounded py-2 px-4"
+              className="disabled:opacity-50 text-white border border-[#19523e] lg:w-[10rem] w-full bg-[#19523e] rounded py-2 px-4 text-center"
             >
               {loading ? <span>Submitting...</span> : "RSVP"}
             </button>
