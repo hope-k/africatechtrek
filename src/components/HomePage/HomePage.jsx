@@ -154,7 +154,7 @@ const HomePage = () => {
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: active === idx ? "auto" : 0 }}
-                  transition={{ duration: 0.600, type:"spring", bounce:0 }}
+                  transition={{ duration: 0.600, type: "spring", bounce: 0 }}
                   className={`overflow-hidden  bg-[#e3e3e3] rounded pl-4`}
                 >
                   <div className="p-4 text-sm">{faq.answer}</div>
@@ -165,8 +165,8 @@ const HomePage = () => {
         </div>
       </section>
 
-            {/* newsletter */}
-            <section>
+      {/* newsletter */}
+      <section>
         <form
           onSubmit={handleSubmit}
           className="w-full text-black px-4 md:px-0"
@@ -183,7 +183,7 @@ const HomePage = () => {
             }}
             className="w-full flex flex-col items-center justify-center py-20"
           >
-            <h1 className="uppercase mb-4 font-[400] leading-7 md:leading-[38.4px] text-[22px] md:text-[32px] poppins-font text-center w-full md:max-w-[40%]">
+            <h1 className="uppercase mb-4 font-[400] text-[22px] md:text-[32px] poppins-font text-center w-full md:max-w-[55%]">
               SIGN UP FOR THE LATEST NEWS AND INSIGHTS FROM africa tech trek{" "}
             </h1>
 
@@ -214,7 +214,7 @@ const HomePage = () => {
                 <button
                   disabled={loading || !email}
                   type="submit"
-                  className="border disabled:opacity-40 hover:bg-green-600 hover:border-600 transition-all duration-300 border-gray-500 p-3 px-10 rounded-md uppercase"
+                  className="border disabled:opacity-40 transition-all duration-300 bg-[#D89C29] px-6 py-3 rounded-lg poppins-font text-white text-normal text-base uppercase"
                 >
                   {loading ? "..." : "Subscribe now"}
                 </button>

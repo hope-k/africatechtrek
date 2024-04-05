@@ -15,7 +15,17 @@ import Marquee from "react-fast-marquee";
 import PaystackSvg from "../../../public/assets/speakers/paystack.svg";
 import IremboSvg from "../../../public/assets/speakers/irembo.svg";
 import ZiplineSvg from "../../../public/assets/speakers/zipline.svg";
+import KashaPng from "../../../public/assets/speakers/kasha.png";
+import SpennPng from "../../../public/assets/speakers/spenn.png";
+import IncludedImage from "../../../public/images/included.svg";
 import CountDown from "react-countdown";
+
+// icons
+import HouseIcon from "../../../public/assets/icons/house.svg";
+import TransportationIcon from "../../../public/assets/icons/transportation.svg";
+import GuideIcon from "../../../public/assets/icons/guide.svg";
+import SecureIcon from "../../../public/assets/icons/secure.svg";
+
 
 const clashDisplay = localFont({
   src: "../../fonts/OTF/ClashDisplay-Variable.ttf",
@@ -23,17 +33,35 @@ const clashDisplay = localFont({
   display: "swap",
 });
 
+function breakTitle(title) {
+  const words = title.split(' ');
+  const firstWord = words.shift();
+  const restOfTitle = words.join(' ');
+  return (
+    <div className="flex flex-col">
+      <p>{firstWord}</p>
+      <p className="-mt-1">{restOfTitle}</p>
+    </div>
+  )
+}
+
+console.log('breakTitle', breakTitle('Nana KOfi LArvi mantey'))
+
 function Card({ day, title, content }) {
   return (
-    <div className="min-w-fit rounded-md   items-center">
-      <div className="sm:px-8 px-5 py-2 3xl:px-12 3xl:py-4 bg-gradient-to-r from-[#80B650] to-green-600 rounded-t-md flex items-center gap-4">
-        <p className="text-white text-xl font-bold">Day {day}</p>
-        <p className="text-gray-200 text-xs  3xl:text-lg text-left w-[60px]">
-          {title}
-        </p>
+    <div className="flex flex-col w-[224px]">
+      <div
+        className="rounded-t-lg bg-gradient-to-r from-[#86A639] to-[#378F4A] px-6 py-6 flex items-center justify-start gap-2"
+      >
+        <p className={`${raleway.className} font-bold text-[26px] text-white`}>DAY {day}</p>
+        <h1 className={`${raleway.className} font-normal text-[13px] text-white`}>
+          {breakTitle(title)}
+        </h1>
       </div>
-      <div className="sm:px-4 px-3 py-2 3xl:px-[3rem] 3xl:py-[3rem]  bg-zinc-100 rounded-b-md">
-        <p className="w-36 3xl:w-[15rem] text-sm 3xl:text-lg">{content}</p>
+      <div
+        className="bg-[#F2F2F2] px-[25px] py-5 rounded-b-lg"
+      >
+        <p className={`${lato.className} font-normal text-base text-[#212121]`}>{content}</p>
       </div>
     </div>
   );
@@ -42,27 +70,27 @@ function Card({ day, title, content }) {
 const RwandaEvent = () => {
   const itineraries = [
     {
-      name: " day 1",
+      day: "1",
       title: "CEO Office Hours",
-      description:
+      content:
         "Meet CEOs and executives of Africa's leading technology companies, including Irembo, Zipline, SPENN, Kasha and more.",
     },
     {
-      name: " day 2",
+      day: "2",
       title: "Zipline Deep-dive",
-      description:
-        "Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana, and Kenya. ",
+      content:
+        "Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana, and Kenya.",
     },
     {
-      name: " day 3",
+      day: "3",
       title: "Paystack Deep-dive ",
-      description: "Visit the Paystack Kigali HQ, and learn about the tech ",
+      content: "Visit the Paystack Kigali HQ, and learn about the tech company reshaping payments across Africa.",
     },
     {
-      name: " day 4",
+      day: "4",
       title: "Gorilla Trek ",
-      description:
-        "See the famous Rwandan Mountain Gorillas, and enjoy the beautiful sites of Volcanoes National Park ",
+      content:
+        "See the famous Rwandan Mountain Gorillas, and enjoy the beautiful sites of Volcanoes National Park.",
     },
   ];
 
@@ -100,351 +128,182 @@ const RwandaEvent = () => {
   const speakers = [
     {
       name: "Zipline",
-      url: "/assets/speakers/zipline.svg",
+      url: ZiplineSvg,
     },
     {
       name: "Paystack",
-      url: "/assets/speakers/paystack.svg",
+      url: PaystackSvg,
     },
     {
       name: "Irembo",
-      url: "/assets/speakers/irembo.svg",
+      url: IremboSvg,
     },
     {
       name: "Kasha",
-      url: "/assets/speakers/kasha.png",
+      url: KashaPng,
     },
     {
       name: "Spenn",
-      url: "/assets/speakers/spenn.png",
+      url: SpennPng,
     },
   ];
 
+  const includedInfo = [
+    {
+      id: 1,
+      title: 'Housing Accommodation',
+      content: "Enjoy the perfect blend of modern comfort and captivating views at Rwanda's leading hotels",
+      icon: HouseIcon,
+    },
+    {
+      id: 2,
+      title: 'Transportation & Logistics',
+      content: "Enjoy the perfect blend of modern comfort and captivating views at Rwanda's leading hotels",
+      icon: TransportationIcon
+    },
+    {
+      id: 3,
+      title: 'Professional Guides',
+      content: "With well trained and professional local guides, you will be treated with the best services you can get in Rwanda. Making your stay an unforgettable experience",
+      icon: GuideIcon
+    },
+    {
+      id: 4,
+      title: 'Safety Assurance',
+      content: "Your well-being is our utmost priority. We meticulously ensure all necessary safety measures are in place. Explore with confidence and peace of mind",
+      icon: SecureIcon
+    },
+  ]
+
   return (
     <section className="pb-[10rem] w-full ">
-      <div className="w-full h-[85vh]  mb-[3rem] relative">
+      <div className="w-full h-[100vh]  mb-[3rem] relative">
         <div className="bg-[url('/images/rwandahero.png')] absolute left-0 right-0 top-0 bottom-0 bg-no-repeat bg-right-bottom w-full bg-cover "></div>
         <div className="max-w-[80vw] mx-auto flex items-center h-full">
-          <div className="relative z-[50] ">
+          <div className="relative items-start justify-center gap-4 flex flex-col z-[50] ">
             <h1
-              className={`uppercase text-5xl mb-2  md:text-8xl text-white font-[600] ${clashDisplay.className}`}
+              className={`uppercase text-5xl mb-2  md:text-[108px] text-white font-semibold ${clashDisplay.className}`}
             >
               africa
               <br /> tech trek
             </h1>
             <h2
-              className={`uppercase text-4xl md:text-6xl text-[#128255] font-[600] ${clashDisplay.className}`}
+              className={`uppercase text-4xl md:text-[68px] text-[#128255] font-semibold ${clashDisplay.className}`}
             >
               rwanda edition
             </h2>
             <Link href="/rsvp">
-              <button className="bg-[#5092A7] uppercase p-3 mt-3 rounded-lg text-sm font-semibold text-white">
-                Register Now
+              <button className="bg-[#5092A7] uppercase px-8 py-3 mt-4 rounded-lg text-sm font-bold text-white">
+                <p className={`${lato.className} text-base`}>REGISTER NOW</p>
               </button>
             </Link>
           </div>
         </div>
       </div>
       {/* itenery */}
-      <div className="grid grid-cols-1 md:grid-cols-6 justify-items-center my-[5rem] w-full sm:w-[90%] mx-auto gap-[5rem] ">
-        {/* first column */}
-        <div className="  col-span-3  ">
-          <div className=" leading-7  mx-[1rem] md:mx-0">
-            <h1
-              className={`${lato.className}   uppercase font-semibold mb-[4rem]`}
-            >
-              <span className="text-[1.625rem] ">This</span> <br />{" "}
-              <span className="text-[3rem] ] ">
-                july <br />{" "}
-                <span className={`${raleway.className} `}>2024</span>
-              </span>
-            </h1>
+      <div className="px-[96px] py-20">
+        <div className="flex w-full">
+          <div className="flex flex-col w-1/2">
+            <div className="flex flex-col items-start">
+              <h3 className={`${lato.className} font-extrabold text-[28px]`}>
+                THIS
+              </h3>
+              <h1 className={`${lato.className} font-bold text-[64px] -mt-4 -ml-2`}>JULY</h1>
+              <h3 className={`${raleway.className} font-bold text-5xl -mt-4`}>2024</h3>
 
+            </div>
             <motion.div
               viewport={{ once: true }}
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, type: "spring", bounce: 0 }}
-              className="space-y-5"
+              className="mt-9 flex flex-col gap-4"
             >
-              <h1
-                className={`${raleway.className} font-[700] relative  text-xl`}
-              >
-                Network with Founders and CEOs of Africa&apos;s Leading
-                Technology Companies
-                <span className="bg-green-600 h-2 absolute bottom-[-8px] left-0  w-[5rem] rounded-full"></span>
-              </h1>
-              <p className={`${lato.className} font-[400]`}>
-                Participants will be provided with a comprehensive view of
-                Africa&apos;s tech and business ecosystem. This includes
-                fostering connections, gaining industry insights, and
-                appreciating Rwanda&apos;s natural wonders, all of which
-                contribute to a unique and enriching experience.
+              <p className={`${raleway.className} font-bold text-[28px] max-w-[90%]`}>
+                Network with Founders and CEOs of Africa&apos;s Leading Technology Companies
               </p>
-              <button
-                onClick={downloadPDF}
-                className="uppercase bg-[#128255] p-3 rounded-lg text-sm font-semibold text-white"
-              >
-                download brochure
-              </button>
+              <p className={`${lato.className} font-normal text-lg max-w-[84%]`}>
+                <span className={`${lato.className} font-semibold`}>Participants</span> will be provided with a comprehensive view of <span className={`${lato.className} font-semibold`}>Africa's tech</span> and business <span className={`${lato.className} font-semibold`}>ecosystem.</span> This includes fostering <span className={`${lato.className} font-semibold`}>connections, gaining industry insights,</span> and <span className={`${lato.className} font-semibold`}>appreciating Rwanda's natural wonders,</span> all of which contribute to a unique and enriching experience.
+              </p>
             </motion.div>
+            <button onClick={downloadPDF} className='rounded-lg px-8 py-3 bg-[#128255] w-fit mt-8'>
+              <p className={`${lato.className} font-bold text-base text-white`}>DOWNLOAD BROCHURE</p>
+            </button>
           </div>
-        </div>
-        {/* second column */}
-        <div className="col-span-3 ">
-          <div className="  flex items-center justify-center ">
-            <div className="flex  flex-col items-start justify-center ">
-              <div className="py-4 gap-2 flex sm:gap-4 items-end">
-                <Card
-                  day={1}
-                  title="CEO Office Hours"
-                  content="Meet CEOs and executives of Africa's leading technology companies including Irembo, Zipline, SPENN, Kasha and more."
-                />
-                <Card
-                  day={3}
-                  title="Paystack Deep-dive"
-                  content="Visit the Paystack Kigali HQ, and learn about the tech company reshaping payments across Africa."
-                />
-              </div>
-
-              <div className="flex gap-2  sm:pl-8 py-2 sm:gap-4 items-center">
-                <Card
-                  day={2}
-                  title="Zipline Deep-dive"
-                  content="Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana and Kenya."
-                />
-                <Card
-                  day={4}
-                  title="Gorilla Trek"
-                  content="See the famous Rwandan Mountain Gorillas, and enjoy the beautiful sites of Volcanoes National Park."
-                />
-              </div>
-
-              {/* <div className="bg-red-200 py-4 flex flex-col gap-4">
-        <div className="pl-12">
-          <Card
-            day={2}
-            title="Zipline Deep-dive"
-            content="Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana and Kenya."
-          />
-        </div>
-        <div className="pl-12">
-          <Card
-            day={2}
-            title="Zipline Deep-dive"
-            content="Visit the Zipline Distribution Centre where it all began. Learn how blood delivery is automated with drones at scale in Rwanda, Nigeria, Ghana and Kenya."
-          />
-        </div>
-      </div> */}
+          <div className="flex flex-col px-12 w-1/2">
+            <div className="w-full flex items-end gap-8">
+              <Card {...itineraries[0]} />
+              <Card {...itineraries[2]} />
+            </div>
+            <div className="mt-8 pl-11 w-full flex items-center gap-8">
+              <Card {...itineraries[1]} />
+              <Card {...itineraries[3]} />
             </div>
           </div>
         </div>
       </div>
       {/* Speakers */}
-      <div className="bg-gradient-to-r from-[#86A639] to-[#118255] w-full pt-10 pb-20 flex flex-col items-center ">
+      <div className="bg-gradient-to-r from-[#86A639] to-[#118255] w-full pt-10 pb-24 flex flex-col items-center ">
         <h1
-          className={`mb-10 text-gray-800 uppercase text-[clamp(1.2rem,1.7vw,1.725rem)] ${clashDisplay.className} font-[500] relative`}
+          className={`mb-6 ${raleway.className} font-bold text-[32px] text-black`}
         >
           Speakers
         </h1>
 
-        <Marquee gradient={false} speed={20}>
-          <div className=" flex items-center w-full justify-around space-x-[clamp(7.5rem,8vw,8rem)] flex-row">
-            <div className="relative ml-10 w-[clamp(10rem,15vw,15rem)] h-24">
+        <Marquee gradient={false} speed={40}>
+          <div className="flex items-center w-full h-[80px] px-40 justify-center gap-24">
+            {speakers.map((speaker) => (
               <Image
-                src={"/assets/speakers/zipline.svg"}
-                alt="Zipline"
-                layout="fill"
+                src={speaker.url}
+                alt={speaker.name}
+                className="w-auto h-full"
                 priority={true}
               />
-            </div>{" "}
-            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
-              <Image
-                src={"/assets/speakers/paystack.svg"}
-                alt="Paystack"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[clamp(7rem,8vw,8rem)] h-24">
-              <Image
-                src={"/assets/speakers/irembo.svg"}
-                alt="Irembo"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[200px] h-[80px]">
-              <Image
-                src={"/assets/speakers/kasha.png"}
-                alt="Kasha"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
-            <div className="relative w-[200px] h-[80px]">
-              <Image
-                src={"/assets/speakers/spenn.png"}
-                alt="Spenn"
-                layout="fill"
-                priority={true}
-              />
-            </div>{" "}
+            ))}
           </div>
         </Marquee>
       </div>
 
       {/* WHATS INCLUDDED */}
-      <div className=" flex flex-col sm:flex-row  justify-items-center w-full h-full relative">
-        <div className="relative w-full h-[45vh] md:w-[50%] md:h-auto">
+      <div className="flex gap-20 w-full h-full">
+        <div className="w-1/2">
           <Image
-            src="/images/included.png"
+            src={IncludedImage}
             alt='what"s included'
-            layout="fill"
-            objectFit="cover"
+            className="w-full h-auto"
+            priority
           />
         </div>
-        <div className=" md:w-[50%] w-full h-full px-3 sm:px-[3rem] md:px-[5rem] mb-10 ">
-          {/* whats included container */}
-          <div className="my-16">
-            <div className={`${raleway.className} font-[700]  capitalize mb-6`}>
-              <h1 className="relative text-[clamp(2rem,2.5vw,2.5rem)] mb-3 leading-10 text-black capitalize">
-                Join Us For An{" "}
-                <span className="font-[800]">Unforgettable Adventure</span> In
-                The{" "}
-                <span className="font-[800]">Land Of A Thousand Hills </span>{" "}
-              </h1>
-            </div>
-            <p className={`${lato.className} font-[400] `}>
-              Don&apos;t miss this opportunity to join Africa Tech Trek - Rwanda
-              Edition, a 4-day tour that will take you to the most innovative
-              and inspiring places in the country. You will meet the
-              entrepreneurs, investors and leaders who are shaping the future of
-              Africa, learn about the latest technologies and solutions that are
-              solving real-world problems, and experience the beauty and
-              diversity of Rwanda&apos;s wildlife and landscapes. This is a
-              once-in-a-lifetime chance to connect, learn and have fun with
-              like-minded people who share your passion for technology and
-              social impact.
-            </p>
+        <div className="w-1/2 pt-20 pr-12">
+          <p className={`${raleway.className} font-bold text-[40px]`}>
+            Join Us For An <span className='font-black'>Unforgettable Adventure</span> In The <span className="font-black">Land Of A Thousand Hills</span>
+          </p>
+          <p className={`mt-5 ${lato.className} font-normal text-sm max-w-[92%] leading-[1.5]`}>
+            Don't miss this opportunity to join Africa Tech Trek - Rwanda Edition, a 4-day tour that will take you to the most innovative and inspiring places in the country. You will meet the entrepreneurs, investors and leaders who are shaping the future of Africa, learn about the latest technologies and solutions that are solving real-world problems, and experience the beauty and diversity of Rwanda's wildlife and landscapes. This is a once-in-a-lifetime chance to connect, learn and have fun with like-minded people who share your passion for technology and social impact.
+          </p>
+          <p className={`${raleway.className} font-black text-[32px] text-[#128255] my-10`}>
+            What is included?
+          </p>
+          <div className="grid grid-cols-2 gap-10">
+            {includedInfo.map((info) => (
+              <div className="p-5 bg-[#F5F5F5]  flex flex-col rounded-lg gap-[10px]">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={info.icon}
+                    className="w-6 h-6"
+                    priority
+                  />
+                  <p
+                    className={`${lato.className} font-bold text-sm max-w-[42%] text-[#212121]`}>
+                    {info.title}
+                  </p>
+                </div>
+                <p className={`${lato.className} font-normal text-sm text-[#212121]`}>
+                  {info.content}
+                </p>
+              </div>
+            ))}
           </div>
-
-          <div
-            className={`${raleway.className} font-[700] text-green-700 text-3xl  capitalize mb-6`}
-          >
-            <h1>What is Included?</h1>
-          </div>
-          {/* whats included item */}
-          <motion.div
-            className={`${lato.className} grid mx-2 sm:mx-0 h-full grid-cols-2 gap-4 grid-rows-2 pb-[5rem]  justify-items-center items-start`}
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-          >
-            <motion.div
-              className="px-4 flex flex-col w-full items-start  py-4 text-start bg-[#f2f2f2ad] rounded-xl"
-              variants={childVariants}
-            >
-              <div
-                className={`${raleway.className} font-semibold mb-1 justify-between w-full flex-row flex  `}
-              >
-                <h1>
-                  Housing <br />
-                  accomodation
-                </h1>
-                <span className="relative hidden sm:flex w-12 h-14  rounded-xl flex-col items-end  ">
-                  <Image
-                    alt="Rwanda Event"
-                    className=" w-full  h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
-                    src="/assets/icons/house.svg"
-                    layout="fill"
-                  />
-                </span>
-              </div>
-              <p className={`${lato.className} `}>
-                Enjoy the perfect blend of modern comfort and captivating views
-                at Rwanda&apos;s leading hotels
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={childVariants}
-              className="px-4 flex flex-col w-full items-start  py-4 text-start bg-[#f2f2f2ad] rounded-xl"
-            >
-              <div
-                className={`${raleway.className} font-semibold mb-1 flex w-full justify-between`}
-              >
-                <span>
-                  Transportation & <br />
-                  Logistics
-                </span>
-                <div className="relative hidden sm:flex w-12 h-12  rounded-xl  ">
-                  <Image
-                    alt="Rwanda Event"
-                    className=" w-full h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
-                    src="/assets/icons/transportation.svg"
-                    layout="fill"
-                  />
-                </div>
-              </div>
-              <p className={`${lato.className} `}>
-                Professional drivers and vehicles with be provided for the full
-                duration of the trip, to ensure a seamless experience.
-              </p>
-            </motion.div>
-            <motion.div
-              className="px-4 flex flex-col w-full items-start  py-4 text-start bg-[#f2f2f2ad] rounded-xl"
-              variants={childVariants}
-            >
-              <div
-                className={`${raleway.className} font-semibold mb-1 flex justify-between w-full`}
-              >
-                <span>
-                  Professional <br />
-                  Guides
-                </span>
-                <div className="relative hidden sm:flex w-12 h-12  rounded-xl  ">
-                  <Image
-                    alt="Rwanda Event"
-                    className=" w-full h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
-                    src="/assets/icons/guide.svg"
-                    layout="fill"
-                  />
-                </div>
-              </div>
-              <p className={`${lato.className} `}>
-                With well trained and proffesional local guides, you will be
-                treated with the best services you can get in Rwanda. Making
-                your stay an unforgettable experience{" "}
-              </p>
-            </motion.div>
-            <motion.div
-              className="px-4 flex flex-col w-full items-start  py-4 text-start bg-[#f2f2f2ad] rounded-xl"
-              variants={childVariants}
-            >
-              <div
-                className={`${raleway.className} flex w-full justify-between font-semibold mb-1`}
-              >
-                <span>
-                  Safety
-                  <br /> Assurance
-                </span>
-                <div className="relative hidden sm:flex w-12 h-12 rounded-xl  ">
-                  <Image
-                    alt="Rwanda Event"
-                    className=" w-full h-full aspect-square p-1 brightness-[40%] object-cover  object-bottom"
-                    src="/assets/icons/secure.svg"
-                    layout="fill"
-                  />
-                </div>
-              </div>
-              <p className={`${lato.className} `}>
-                Your well-being is our utmost priority. We meticulously ensure
-                all necessary safety measures are in place. Explore with
-                confidence and peace of mind{" "}
-              </p>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
 
@@ -502,7 +361,7 @@ const RwandaEvent = () => {
                 <p>
                   The participation fee for Africa Tech Trek - Rwanda Edition
                   includes accommodation and all meals. The cost does not
-                  include flights or travel insurance. 
+                  include flights or travel insurance.
                 </p>
                 <br />
                 <p className="text-[#118255]">

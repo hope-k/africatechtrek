@@ -20,9 +20,8 @@ const Header = () => {
 
   return (
     <nav
-      className={`${
-        sidebarOpen || isRwanda ? "text-[#ccc]" : isWhitePage && "text-black"
-      } bg-transparent  w-full py-6 text-[#ccc] px-[clamp(.2rem,7vw,10rem)] absolute   z-[100] border-b border-gray-500/50`}
+      className={`${sidebarOpen || isRwanda ? "text-[#ccc]" : isWhitePage && "text-black"
+        } bg-transparent  w-full py-6 text-[#ccc] px-[clamp(.2rem,7vw,10rem)] absolute   z-[100]`}
     >
       <div className="flex justify-between items-center ">
         <Link
@@ -35,7 +34,7 @@ const Header = () => {
           <Link href="/" className="hover:text-teal-600">
             home
           </Link>
-          
+
           <Link href="/rsvp" className="hover:text-teal-600">
             rsvp
           </Link>
