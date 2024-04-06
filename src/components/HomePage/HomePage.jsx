@@ -117,7 +117,7 @@ const HomePage = () => {
       <section className="flex my-[10rem] flex-col sm:flex-row px-4 sm:mx-[clamp(0rem,4vw+3rem,8rem)] gap-[5rem] md:gap-[10rem]">
 
         <div className="md:w-[40%] ">
-          <h1 className="text-[clamp(2.125rem,4vw,2.625rem)] leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)] capitalize mb-4 font-[700] text-[#86A639]">
+          <h1 className={`text-[clamp(2.125rem,4vw,2.625rem)] leading-[clamp(1.1rem,2vw+1.5rem,2.5rem)] capitalize mb-4 font-[700] text-[#86A639] ${raleway.className}`}>
             frequently <br />
             asked questions
           </h1>

@@ -45,13 +45,11 @@ function breakTitle(title) {
   )
 }
 
-console.log('breakTitle', breakTitle('Nana KOfi LArvi mantey'))
-
 function Card({ day, title, content }) {
   return (
     <div className="flex flex-col w-[224px]">
       <div
-        className="rounded-t-lg bg-gradient-to-r from-[#86A639] to-[#378F4A] px-6 py-6 flex items-center justify-start gap-2"
+        className="rounded-t-lg bg-gradient-to-r from-[#86A639] to-[#378F4A] px-6 py-3 flex items-center justify-start gap-2"
       >
         <p className={`${raleway.className} font-bold text-[26px] text-white`}>DAY {day}</p>
         <h1 className={`${raleway.className} font-normal text-[13px] text-white`}>
@@ -176,13 +174,13 @@ const RwandaEvent = () => {
   ]
 
   return (
-    <section className="pb-[10rem] w-full ">
+    <section className="pb-[1rem] w-full ">
       <div className="w-full h-[100vh]  mb-[3rem] relative">
         <div className="bg-[url('/images/rwandahero.png')] absolute left-0 right-0 top-0 bottom-0 bg-no-repeat bg-right-bottom w-full bg-cover "></div>
         <div className="max-w-[80vw] mx-auto flex items-center h-full">
           <div className="relative items-start justify-center gap-4 flex flex-col z-[50] ">
             <h1
-              className={`uppercase text-5xl mb-2  md:text-[108px] text-white font-semibold ${clashDisplay.className}`}
+              className={`uppercase text-5xl mt-32  md:text-[108px] text-white font-semibold ${clashDisplay.className}`}
             >
               africa
               <br /> tech trek
@@ -201,7 +199,7 @@ const RwandaEvent = () => {
         </div>
       </div>
       {/* itenery */}
-      <div className="px-[96px] py-20">
+      <div className="px-[96px] py-8">
         <div className="flex w-full">
           <div className="flex flex-col w-1/2">
             <div className="flex flex-col items-start">
@@ -219,7 +217,7 @@ const RwandaEvent = () => {
               transition={{ duration: 0.8, type: "spring", bounce: 0 }}
               className="mt-9 flex flex-col gap-4"
             >
-              <p className={`${raleway.className} font-bold text-[28px] max-w-[90%]`}>
+              <p className={`${raleway.className} font-bold text-xl max-w-[65%]`}>
                 Network with Founders and CEOs of Africa&apos;s Leading Technology Companies
               </p>
               <p className={`${lato.className} font-normal text-lg max-w-[84%]`}>
@@ -230,7 +228,7 @@ const RwandaEvent = () => {
               <p className={`${lato.className} font-bold text-base text-white`}>DOWNLOAD BROCHURE</p>
             </button>
           </div>
-          <div className="flex flex-col px-12 w-1/2">
+          <div className="flex flex-col w-1/2">
             <div className="w-full flex items-end gap-8">
               <Card {...itineraries[0]} />
               <Card {...itineraries[2]} />
@@ -250,8 +248,8 @@ const RwandaEvent = () => {
           Speakers
         </h1>
 
-        <Marquee gradient={false} speed={40}>
-          <div className="flex items-center w-full h-[80px] px-40 justify-center gap-24">
+        <Marquee gradient={false} speed={80}>
+          <div className="flex items-center w-full h-[60px] px-40 justify-center gap-24">
             {speakers.map((speaker) => (
               <Image
                 key={speaker.name}
@@ -276,7 +274,7 @@ const RwandaEvent = () => {
           />
         </div>
         <div className="w-1/2 pt-20 pr-12">
-          <p className={`${raleway.className} font-bold text-[40px]`}>
+          <p className={`${raleway.className} font-bold text-[40px] leading-tight`}>
             Join Us For An <span className='font-black'>Unforgettable Adventure</span> In The <span className="font-black">Land Of A Thousand Hills</span>
           </p>
           <p className={`mt-5 ${lato.className} font-normal text-sm max-w-[92%] leading-[1.5]`}>
@@ -292,7 +290,7 @@ const RwandaEvent = () => {
                   <Image
                     alt="included img"
                     src={info.icon}
-                    className="w-6 h-6"
+                    className="w-10 h-10"
                     priority
                   />
                   <p
@@ -358,7 +356,7 @@ const RwandaEvent = () => {
               </div>
 
               <div
-                className={`${lato.className} flex flex-col justify-center text-[15px] bg-white p-[2rem] py-[3.5rem] md:py-[5rem]  sm:mr-4 `}
+                className={`${lato.className} flex flex-col justify-center text-[15px] bg-white p-[2rem] py-[3.5rem] md:py-[5rem] rounded-r-lg  sm:mr-4 `}
               >
                 <p>
                   The participation fee for Africa Tech Trek - Rwanda Edition
