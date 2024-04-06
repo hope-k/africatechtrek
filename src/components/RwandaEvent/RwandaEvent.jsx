@@ -223,7 +223,7 @@ const RwandaEvent = () => {
                 Network with Founders and CEOs of Africa&apos;s Leading Technology Companies
               </p>
               <p className={`${lato.className} font-normal text-lg max-w-[84%]`}>
-                <span className={`${lato.className} font-semibold`}>Participants</span> will be provided with a comprehensive view of <span className={`${lato.className} font-semibold`}>Africa's tech</span> and business <span className={`${lato.className} font-semibold`}>ecosystem.</span> This includes fostering <span className={`${lato.className} font-semibold`}>connections, gaining industry insights,</span> and <span className={`${lato.className} font-semibold`}>appreciating Rwanda's natural wonders,</span> all of which contribute to a unique and enriching experience.
+                <span className={`${lato.className} font-semibold`}>Participants</span> will be provided with a comprehensive view of <span className={`${lato.className} font-semibold`}>Africa&apos;s tech</span> and business <span className={`${lato.className} font-semibold`}>ecosystem.</span> This includes fostering <span className={`${lato.className} font-semibold`}>connections, gaining industry insights,</span> and <span className={`${lato.className} font-semibold`}>appreciating Rwanda&apos;s natural wonders,</span> all of which contribute to a unique and enriching experience.
               </p>
             </motion.div>
             <button onClick={downloadPDF} className='rounded-lg px-8 py-3 bg-[#128255] w-fit mt-8'>
@@ -254,6 +254,7 @@ const RwandaEvent = () => {
           <div className="flex items-center w-full h-[80px] px-40 justify-center gap-24">
             {speakers.map((speaker) => (
               <Image
+                key={speaker.name}
                 src={speaker.url}
                 alt={speaker.name}
                 className="w-auto h-full"
@@ -279,16 +280,17 @@ const RwandaEvent = () => {
             Join Us For An <span className='font-black'>Unforgettable Adventure</span> In The <span className="font-black">Land Of A Thousand Hills</span>
           </p>
           <p className={`mt-5 ${lato.className} font-normal text-sm max-w-[92%] leading-[1.5]`}>
-            Don't miss this opportunity to join Africa Tech Trek - Rwanda Edition, a 4-day tour that will take you to the most innovative and inspiring places in the country. You will meet the entrepreneurs, investors and leaders who are shaping the future of Africa, learn about the latest technologies and solutions that are solving real-world problems, and experience the beauty and diversity of Rwanda's wildlife and landscapes. This is a once-in-a-lifetime chance to connect, learn and have fun with like-minded people who share your passion for technology and social impact.
+            Don&apos;t miss this opportunity to join Africa Tech Trek - Rwanda Edition, a 4-day tour that will take you to the most innovative and inspiring places in the country. You will meet the entrepreneurs, investors and leaders who are shaping the future of Africa, learn about the latest technologies and solutions that are solving real-world problems, and experience the beauty and diversity of Rwanda&apos;s wildlife and landscapes. This is a once-in-a-lifetime chance to connect, learn and have fun with like-minded people who share your passion for technology and social impact.
           </p>
           <p className={`${raleway.className} font-black text-[32px] text-[#128255] my-10`}>
             What is included?
           </p>
           <div className="grid grid-cols-2 gap-10">
             {includedInfo.map((info) => (
-              <div className="p-5 bg-[#F5F5F5]  flex flex-col rounded-lg gap-[10px]">
+              <div key={info.id} className="p-5 bg-[#F5F5F5]  flex flex-col rounded-lg gap-[10px]">
                 <div className="flex items-center gap-4">
                   <Image
+                    alt="included img"
                     src={info.icon}
                     className="w-6 h-6"
                     priority
