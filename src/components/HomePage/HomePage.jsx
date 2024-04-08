@@ -205,16 +205,19 @@ const HomePage = () => {
                     type="email"
                     placeholder="Email"
                   />
-                  <img
-                    className="w-6 h-2 transition-all duration-300 ease-in-out"
+                  <Image
+                    width={24}
+                    height={8}
+                    className="transition-all duration-300 ease-in-out"
                     src="https://uploads-ssl.webflow.com/63ff35589070572b10295446/63ff40b9a75a0423828b9f3d_su-arrow.svg"
                     alt=""
+                    priority
                   />
                 </div>
                 <button
                   disabled={loading || !email}
                   type="submit"
-                  className="border disabled:opacity-40 transition-all duration-300 bg-[#D89C29] px-6 py-3 rounded-lg poppins-font text-white text-normal text-base uppercase"
+                  className="border transition-all duration-300 bg-[#D89C29] px-6 py-3 rounded-lg poppins-font text-white text-normal text-base uppercase"
                 >
                   {loading ? "..." : "Subscribe now"}
                 </button>

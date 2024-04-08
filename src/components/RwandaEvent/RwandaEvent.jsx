@@ -180,7 +180,7 @@ const RwandaEvent = () => {
         <div className="max-w-[80vw] mx-auto flex items-center h-full">
           <div className="relative items-start justify-center gap-4 flex flex-col z-[50] ">
             <h1
-              className={`uppercase text-5xl mt-32  md:text-[108px] text-white font-semibold ${clashDisplay.className}`}
+              className={`uppercase text-5xl mt-32  md:text-[108px] leading-[0.8] text-white font-semibold ${clashDisplay.className}`}
             >
               africa
               <br /> tech trek
@@ -217,7 +217,7 @@ const RwandaEvent = () => {
               transition={{ duration: 0.8, type: "spring", bounce: 0 }}
               className="mt-9 flex flex-col gap-4"
             >
-              <p className={`${raleway.className} font-bold text-xl max-w-[65%]`}>
+              <p className={`${raleway.className} font-bold text-2xl max-w-[80%]`}>
                 Network with Founders and CEOs of Africa&apos;s Leading Technology Companies
               </p>
               <p className={`${lato.className} font-normal text-lg max-w-[84%]`}>
@@ -249,7 +249,7 @@ const RwandaEvent = () => {
         </h1>
 
         <Marquee gradient={false} speed={80}>
-          <div className="flex items-center w-full h-[60px] px-40 justify-center gap-24">
+          <div className="flex items-center w-full h-[40px] px-40 justify-center gap-24">
             {speakers.map((speaker) => (
               <Image
                 key={speaker.name}
