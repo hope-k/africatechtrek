@@ -16,7 +16,6 @@ import PaystackSvg from "../../../public/assets/speakers/paystack.svg";
 import IremboSvg from "../../../public/assets/speakers/irembo.svg";
 import ZiplineSvg from "../../../public/assets/speakers/zipline.svg";
 import KashaPng from "../../../public/assets/speakers/kasha.png";
-import SpennPng from "../../../public/assets/speakers/spenn.png";
 import IncludedImage from "../../../public/images/included.svg";
 import CountDown from "react-countdown";
 
@@ -101,27 +100,6 @@ const RwandaEvent = () => {
     link.click();
     document.body.removeChild(link);
   };
-  const containerVariants = {
-    show: {
-      transition: {
-        staggerChildren: 0.18, // Adjust the stagger timing as needed
-      },
-    },
-  };
-
-  // Define the child variants for opacity
-  const childVariants = {
-    hidden: { opacity: 0, scale: 0.04 },
-    show: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        ease: "circOut",
-
-        duration: 0.8,
-      },
-    },
-  };
 
   const speakers = [
     {
@@ -139,10 +117,6 @@ const RwandaEvent = () => {
     {
       name: "Kasha",
       url: KashaPng,
-    },
-    {
-      name: "Spenn",
-      url: SpennPng,
     },
   ];
 
@@ -269,7 +243,7 @@ const RwandaEvent = () => {
           <Image
             src={IncludedImage}
             alt='what"s included'
-            className="w-full h-auto"
+            className="w-full h-full object-cover"
             priority
           />
         </div>
@@ -283,7 +257,7 @@ const RwandaEvent = () => {
           <p className={`${raleway.className} font-black text-[32px] text-[#128255] my-10`}>
             What is included?
           </p>
-          <div className="grid grid-cols-2 gap-10">
+          <div className="grid grid-cols-2 gap-10 pb-12">
             {includedInfo.map((info) => (
               <div key={info.id} className="p-5 bg-[#F5F5F5]  flex flex-col rounded-lg gap-[10px]">
                 <div className="flex items-center gap-4">
