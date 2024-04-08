@@ -48,7 +48,7 @@ function Card({ day, title, content }) {
   return (
     <div className="flex flex-col w-[224px]">
       <div
-        className="rounded-t-lg bg-gradient-to-r from-[#86A639] to-[#378F4A] px-6 py-3 flex items-center justify-start gap-2"
+        className="rounded-t-lg bg-gradient-to-r from-[#86A639] to-[#378F4A] px-6 py-3 flex items-center justify-start gap-2 flex-col md:flex-row"
       >
         <p className={`${raleway.className} font-bold text-[26px] text-white`}>DAY {day}</p>
         <h1 className={`${raleway.className} font-normal text-[13px] text-white`}>
@@ -151,8 +151,8 @@ const RwandaEvent = () => {
     <section className="pb-[1rem] w-full ">
       <div className="w-full h-[100vh]  mb-[3rem] relative">
         <div className="bg-[url('/images/rwandahero.png')] absolute left-0 right-0 top-0 bottom-0 bg-no-repeat bg-right-bottom w-full bg-cover "></div>
-        <div className="max-w-[80vw] mx-auto flex items-center h-full">
-          <div className="relative items-start justify-center gap-4 flex flex-col z-[50] ">
+        <div className="mx-auto flex items-center h-full">
+          <div className="relative items-start justify-center gap-4 flex flex-col z-[50] px-4">
             <h1
               className={`uppercase text-5xl mt-32  md:text-[108px] leading-[0.8] text-white font-semibold ${clashDisplay.className}`}
             >
@@ -173,16 +173,15 @@ const RwandaEvent = () => {
         </div>
       </div>
       {/* itenery */}
-      <div className="px-[96px] py-8">
-        <div className="flex w-full">
-          <div className="flex flex-col w-1/2">
+      <div className="lg:px-24 md:px-12 px-6 py-8">
+        <div className="flex flex-col lg:flex-row w-full">
+          <div className="flex flex-col w-full md:w-1/2">
             <div className="flex flex-col items-start">
-              <h3 className={`${lato.className} font-extrabold text-[28px]`}>
+              <h3 className={`${lato.className} font-extrabold lg:text-[28px] md:text-xl text-sm`}>
                 THIS
               </h3>
               <h1 className={`${lato.className} font-bold text-[64px] -mt-4 -ml-2`}>JULY</h1>
               <h3 className={`${raleway.className} font-bold text-5xl -mt-4`}>2024</h3>
-
             </div>
             <motion.div
               viewport={{ once: true }}
@@ -191,10 +190,10 @@ const RwandaEvent = () => {
               transition={{ duration: 0.8, type: "spring", bounce: 0 }}
               className="mt-9 flex flex-col gap-4"
             >
-              <p className={`${raleway.className} font-bold text-2xl max-w-[80%]`}>
+              <p className={`${raleway.className} font-bold lg:text-2xl text-base max-w-full lg:max-w-[80%]`}>
                 Network with Founders and CEOs of Africa&apos;s Leading Technology Companies
               </p>
-              <p className={`${lato.className} font-normal text-lg max-w-[84%]`}>
+              <p className={`${lato.className} font-normal lg:text-lg text-sm max-w-full lg:max-w-[84%]`}>
                 <span className={`${lato.className} font-semibold`}>Participants</span> will be provided with a comprehensive view of <span className={`${lato.className} font-semibold`}>Africa&apos;s tech</span> and business <span className={`${lato.className} font-semibold`}>ecosystem.</span> This includes fostering <span className={`${lato.className} font-semibold`}>connections, gaining industry insights,</span> and <span className={`${lato.className} font-semibold`}>appreciating Rwanda&apos;s natural wonders,</span> all of which contribute to a unique and enriching experience.
               </p>
             </motion.div>
@@ -202,12 +201,12 @@ const RwandaEvent = () => {
               <p className={`${lato.className} font-bold text-base text-white`}>DOWNLOAD BROCHURE</p>
             </button>
           </div>
-          <div className="flex flex-col w-1/2">
+          <div className="flex flex-col w-full md:w-1/2 mt-12 md:mt-0">
             <div className="w-full flex items-end gap-8">
               <Card {...itineraries[0]} />
               <Card {...itineraries[2]} />
             </div>
-            <div className="mt-8 pl-11 w-full flex items-center gap-8">
+            <div className="mt-8 md:pl-11 w-full flex items-center gap-8">
               <Card {...itineraries[1]} />
               <Card {...itineraries[3]} />
             </div>
@@ -238,8 +237,8 @@ const RwandaEvent = () => {
       </div>
 
       {/* WHATS INCLUDDED */}
-      <div className="flex gap-20 w-full h-full">
-        <div className="w-1/2">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 w-full h-full">
+        <div className="w-full lg:w-1/2">
           <Image
             src={IncludedImage}
             alt='what"s included'
@@ -247,7 +246,7 @@ const RwandaEvent = () => {
             priority
           />
         </div>
-        <div className="w-1/2 pt-20 pr-12">
+        <div className="w-full lg:w-1/2 lg:pt-20 px-4 lg:pr-12">
           <p className={`${raleway.className} font-bold text-[40px] leading-tight`}>
             Join Us For An <span className='font-black'>Unforgettable Adventure</span> In The <span className="font-black">Land Of A Thousand Hills</span>
           </p>
@@ -257,7 +256,7 @@ const RwandaEvent = () => {
           <p className={`${raleway.className} font-black text-[32px] text-[#128255] my-10`}>
             What is included?
           </p>
-          <div className="grid grid-cols-2 gap-10 pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 pb-6 lg:pb-12">
             {includedInfo.map((info) => (
               <div key={info.id} className="p-5 bg-[#F5F5F5]  flex flex-col rounded-lg gap-[10px]">
                 <div className="flex items-center gap-4">
@@ -284,7 +283,6 @@ const RwandaEvent = () => {
       {/* who should attend */}
       <div className="flex  justify-items-center mb-[5rem]  bg-[#5092A7] mt-[-1px]  py-[7rem] gap-[5rem] ">
         <div className="sm:max-w-[80vw] max-w-[95vw] mx-auto flex flex-col md:flex-row ">
-          {/* first column */}
           <div className="  flex-1 ">
             <div className=" leading-7 space-y-5 mx-1 sm:mx-[1rem]">
               <motion.div
@@ -316,7 +314,6 @@ const RwandaEvent = () => {
               </motion.div>
             </div>
           </div>
-          {/* second column */}
           <div className="w-full flex-1 ">
             <div className="flex flex-col sm:mx-[1rem]  sm:flex-row  min-h-[20rem] sm:w-full">
               <div
